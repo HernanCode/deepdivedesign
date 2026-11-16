@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programa Deep Dive — coSIMULATION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+  <link rel="stylesheet" href="assets/css/deepdive.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="csdd-page-body">
+<!-- ===== NAV (compartida) ===== -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+      <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+    </a>
+    <nav class="site-links" aria-label="Principal">
+      <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+      <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+      <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+      <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+    </nav>
+    <div class="site-actions">
+      <a class="site-contact" href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+    </div>
+    <details class="site-mobile">
+      <summary data-ca="Menú" data-es="Menú">Menú</summary>
+      <div class="site-mobile-links">
+        <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+        <a href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+  <!-- HEADER: hoy lo pinta Neve (heredado). Se rediseñará al independizar el tema. -->
+<main class="csdd-page csdd-index">
+	<!-- HERO -->
+	<section class="relative w-full bg-navy-deep text-on-primary py-space-3xl overflow-hidden csdd-hero">
+		<div class="csdd-hero-bg" aria-hidden="true"><img class="csdd-hero-bg-img" src="assets/img/deepdive.jpeg" alt=""></div>
+		<div class="csdd-hero-overlay" aria-hidden="true"></div>
+		<div class="max-w-[1200px] mx-auto px-space-lg relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+				<div class="lg:col-span-7 space-y-space-md">
+										<div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-card-wash/10 border border-card-wash/15 text-accent-cyan backdrop-blur-md">
+						<span class="w-2 h-2 rounded-full bg-accent-cyan"></span>
+						<span class="font-label-badge text-label-badge uppercase tracking-wider text-card-wash">Edición 2026 - 2027 | De la evidencia a la decisión clínica</span>
+					</div>
+										<h1 class="font-display-hero text-display-hero md:text-display-hero text-card-wash tracking-tight leading-tight">
+						Programa Deep Dive<div><span class="text-accent-cyan">2026-27 </span></div>
+					</h1>
+										<p class="font-body-lg text-body-lg text-surface-container-high max-w-2xl leading-relaxed">Sesiones monográficas intensivas con referentes clínicos de urgencias, emergencias y cuidados críticos. Actualiza tu criterio profesional con casos prácticos y evidencia actualizada.</p>
+										<div class="grid grid-cols-2 sm:grid-cols-2 gap-space-xs pt-space-xs">
+																		<div class="flex items-center gap-space-xs p-space-xs rounded-lg bg-card-wash/5 backdrop-blur-sm border border-card-wash/10">
+							<span class="material-symbols-outlined text-accent-cyan text-[20px]">calendar_month</span>
+							<span class="font-body-sm text-body-sm text-card-wash font-medium">
+								<span class="font-bold">5</span> 								<span>Sesiones Monográficas</span>
+							</span>
+						</div>
+																								<div class="flex items-center gap-space-xs p-space-xs rounded-lg bg-card-wash/5 backdrop-blur-sm border border-card-wash/10">
+							<span class="material-symbols-outlined text-accent-cyan text-[20px]">verified_user</span>
+							<span class="font-body-sm text-body-sm text-card-wash font-medium">
+																<span>Ponentes y Expertos Referentes</span>
+							</span>
+						</div>
+																								<div class="flex items-center gap-space-xs p-space-xs rounded-lg bg-card-wash/5 backdrop-blur-sm border border-card-wash/10">
+							<span class="material-symbols-outlined text-accent-cyan text-[20px]">video_camera_front</span>
+							<span class="font-body-sm text-body-sm text-card-wash font-medium">
+																<span>En Directo + Grabaciones HD</span>
+							</span>
+						</div>
+																								<div class="flex items-center gap-space-xs p-space-xs rounded-lg bg-card-wash/5 backdrop-blur-sm border border-card-wash/10">
+							<span class="material-symbols-outlined text-accent-cyan text-[20px]">card_membership</span>
+							<span class="font-body-sm text-body-sm text-card-wash font-medium">
+																<span>Acceso Individual o Miembro Total</span>
+							</span>
+						</div>
+																	</div>
+					<div class="flex flex-wrap items-center gap-space-sm pt-space-md">
+						<a class="inline-flex items-center justify-center gap-space-xs bg-accent-cyan text-on-primary hover:text-on-primary font-label-button text-label-button px-space-lg py-space-sm rounded-lg hover:bg-accent-cerulean transition-all shadow-md hover:-translate-y-0.5" href="#calendari">
+							<span class="material-symbols-outlined text-[18px]">event_available</span>
+							Ver Calendario de Sesiones						</a>
+						<a class="inline-flex items-center justify-center gap-space-xs bg-card-wash/10 text-card-wash hover:text-on-primary font-label-button text-label-button px-space-lg py-space-sm rounded-lg hover:bg-card-wash/20 border border-card-wash/20 transition-all backdrop-blur-md" href="#membre-total">
+							<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+							Suscripción Miembro Total						</a>
+					</div>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="relative rounded-2xl bg-gradient-to-br from-navy-mid/60 to-primary/80 border border-card-wash/15 p-space-xl backdrop-blur-xl shadow-2xl">
+						<div class="flex items-center justify-between pb-space-md border-b border-card-wash/10">
+							<div>
+								<p class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cyan">Ciclo Clínico Oficial</p>
+								<h3 class="font-headline-md text-headline-md text-card-wash mt-space-2xs">Temporada Académica</h3>
+							</div>
+							<span class="p-space-xs rounded-full bg-accent-cyan/20 text-accent-cyan">
+								<span class="material-symbols-outlined text-[28px]">clinical_notes</span>
+							</span>
+						</div>
+						<div class="py-space-md space-y-space-sm">
+							<div class="flex justify-between items-center text-body-sm font-body-sm text-surface-container-high">
+								<span class="">Convocatorias confirmadas</span>
+								<span class="font-bold text-accent-cyan">100% Calendario Cerrado</span>
+							</div>
+							<div class="w-full h-2 rounded-full bg-card-wash/10 overflow-hidden">
+								<div class="h-full bg-gradient-to-r from-secondary-container to-accent-cyan w-full"></div>
+							</div>
+							<div class="space-y-space-xs pt-space-xs text-body-sm font-body-sm text-card-wash/80">
+																<div class="flex items-center gap-space-xs">
+									<span class="material-symbols-outlined text-badge-emerald text-[18px]">check_circle</span>
+									<span class="">12 meses de actualización clínica continuada</span>
+								</div>
+																<div class="flex items-center gap-space-xs">
+									<span class="material-symbols-outlined text-badge-emerald text-[18px]">check_circle</span>
+									<span class="">Casos reales de UCI, Urgencias, HEMS y Parto extrahospitalario</span>
+								</div>
+																<div class="flex items-center gap-space-xs">
+									<span class="material-symbols-outlined text-badge-emerald text-[18px]">check_circle</span>
+									<span class="">Interacción y debate abierto con ponentes referentes</span>
+								</div>
+															</div>
+						</div>
+						<div class="mt-space-md p-space-sm rounded-xl bg-card-wash/5 border border-card-wash/10 flex items-center justify-between">
+							<div class="flex items-center gap-space-xs">
+								<span class="material-symbols-outlined text-badge-amber text-[20px]">star</span>
+								<span class="font-body-sm text-body-sm text-card-wash font-semibold">Valoración 4.9/5 por médicos, enfermeros y TES </span>
+							</div>
+							<span class="font-label-badge text-label-badge text-accent-cyan font-bold uppercase">2026/27</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TRUSTPILOT BAND -->
+	<section class="w-full bg-card-wash border-b border-slate-border py-space-sm shadow-sm">
+		<div class="max-w-[1200px] mx-auto px-space-lg flex flex-wrap items-center justify-between gap-space-md">
+			<div class="flex items-center gap-space-sm">
+				<div class="flex items-center gap-1 bg-[#00B67A] px-2 py-1 rounded text-card-wash font-bold text-xs tracking-wider">
+					<span class="material-symbols-outlined text-[14px]">star</span>
+					Trustpilot				</div>
+				<div class="flex items-center text-[#00B67A] gap-0.5">
+										<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+										<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+										<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+										<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+										<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+									</div>
+				<span class="font-body-sm text-body-sm font-bold text-navy-deep">4.9 / 5</span>
+				<span class="hidden md:inline text-outline text-xs">|</span>
+				<span class="hidden md:inline font-body-sm text-body-sm text-slate-body">Más de 180 reseñas profesionales verificadas</span>
+			</div>
+			<div class="hidden sm:flex items-center gap-space-md text-xs font-body-sm text-slate-body">
+				<span class="flex items-center gap-1"><span class="material-symbols-outlined text-badge-emerald text-[16px]">verified</span> Formación Médica Acreditada</span>
+				<span class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[16px]">devices</span> Plataforma Multidispositivo</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- CALENDAR & SESSIONS -->
+	<section class="w-full bg-surface py-space-2xl" id="calendari">
+		<div class="max-w-[1200px] mx-auto px-space-lg space-y-space-xl">
+			<div class="space-y-space-md">
+				<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+					<div>
+						<div class="inline-flex items-center gap-space-2xs text-secondary font-label-badge text-label-badge uppercase tracking-wider mb-space-2xs font-semibold">
+							<span class="material-symbols-outlined text-[16px]">event_note</span>
+							Calendario Académico 2026-2027						</div>
+						<h2 class="font-headline-xl text-headline-xl text-navy-deep font-bold"><span>5</span> <span>Sesiones Clínicas Monográficas</span></h2>
+						<p class="font-body-md text-body-md text-slate-body mt-space-2xs">Elige tus sesiones de interés o inscríbete al ciclo completo de formación especializada.</p>
+					</div>
+					<div class="relative w-full md:w-72">
+						<span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-outline">
+							<span class="material-symbols-outlined text-[20px]">search</span>
+						</span>
+						<input class="w-full h-11 pl-10 pr-4 bg-card-wash border border-slate-border rounded-lg font-body-sm text-body-sm text-navy-deep placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-accent-cyan shadow-sm"
+							   id="sessionSearch" type="text" placeholder="Buscar por ponente o tema..." aria-label="Buscar por ponente o tema...">
+					</div>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="sessionsGrid">
+								<div class="session-card group bg-card-wash rounded-xl border border-slate-border hover:border-accent-cerulean/50 transition-all duration-300 hover:shadow-xl flex flex-col justify-between overflow-hidden"
+					 data-keywords="jordi miralles cÓdigo sepsis, cuando el tiempo es clave guías ssc 2026">
+					<div class="p-space-lg space-y-space-md">
+						<div class="flex items-center justify-between gap-space-xs">
+														<div class="flex items-baseline gap-1 bg-navy-deep text-card-wash px-space-sm py-1 rounded-md font-headline-sm text-headline-sm font-bold shadow-sm">
+								<span>14</span>
+								<span class="text-xs font-semibold uppercase text-accent-cyan">ENE</span>							</div>
+																												<span class="inline-block px-space-xs py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-fixed text-navy-deep">Guías SSC 2026</span>
+													</div>
+												<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-slate-border/60">
+														<img class="w-14 h-14 rounded-lg object-cover flex-shrink-0 shadow-sm" alt="Jordi Miralles" src="assets/img/placeholder-foto.svg" />
+														<div class="min-w-0">
+								<p class="font-headline-sm text-sm text-navy-deep font-bold truncate">Jordi Miralles</p>
+								<p class="font-body-sm text-xs text-slate-body truncate">Enfermero de Urgencias | Especialista en paciente crítico y emergencias</p>							</div>
+						</div>
+												<div class="space-y-space-2xs">
+														<h3 class="font-headline-md text-headline-md text-navy-deep group-hover:text-secondary transition-colors font-bold leading-snug">CÓDIGO SEPSIS, cuando el tiempo es clave</h3>
+																				</div>
+					</div>
+					<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-slate-border flex items-center justify-between">
+						<span class="font-body-sm text-xs font-medium text-slate-body flex items-center gap-1">
+							<span class="material-symbols-outlined text-[16px] text-badge-emerald">videocam</span> Sesión en directo						</span>
+												<a class="inline-flex items-center gap-1 bg-navy-deep text-card-wash hover:text-on-primary hover:bg-secondary font-label-button text-xs py-2 px-space-sm rounded-md transition-colors shadow-sm"
+						   href="#">
+							Más información <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+						</a>
+											</div>
+				</div>
+								<div class="session-card group bg-card-wash rounded-xl border border-slate-border hover:border-accent-cerulean/50 transition-all duration-300 hover:shadow-xl flex flex-col justify-between overflow-hidden"
+					 data-keywords="dra. claire teijeira emergencias en salud mental: reconocer, valorar y actuar en el entorno extrahospitalario psiquiatría ">
+					<div class="p-space-lg space-y-space-md">
+						<div class="flex items-center justify-between gap-space-xs">
+														<div class="flex items-baseline gap-1 bg-navy-deep text-card-wash px-space-sm py-1 rounded-md font-headline-sm text-headline-sm font-bold shadow-sm">
+								<span>05</span>
+								<span class="text-xs font-semibold uppercase text-accent-cyan">FEB</span>							</div>
+																												<span class="inline-block px-space-xs py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-fixed text-navy-deep">Psiquiatría </span>
+													</div>
+												<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-slate-border/60">
+														<img class="w-14 h-14 rounded-lg object-cover flex-shrink-0 shadow-sm" alt="Dra. Claire Teijeira" src="assets/img/placeholder-foto.svg" />
+														<div class="min-w-0">
+								<p class="font-headline-sm text-sm text-navy-deep font-bold truncate">Dra. Claire Teijeira</p>
+								<p class="font-body-sm text-xs text-slate-body truncate">Médica especialista en Psiquiatría. Docente en UIB y UVic-UCC</p>							</div>
+						</div>
+												<div class="space-y-space-2xs">
+														<h3 class="font-headline-md text-headline-md text-navy-deep group-hover:text-secondary transition-colors font-bold leading-snug">Emergencias en salud mental: reconocer, valorar y actuar en el entorno extrahospitalario</h3>
+																				</div>
+					</div>
+					<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-slate-border flex items-center justify-between">
+						<span class="font-body-sm text-xs font-medium text-slate-body flex items-center gap-1">
+							<span class="material-symbols-outlined text-[16px] text-badge-emerald">videocam</span> Sesión en directo						</span>
+												<a class="inline-flex items-center gap-1 bg-navy-deep text-card-wash hover:text-on-primary hover:bg-secondary font-label-button text-xs py-2 px-space-sm rounded-md transition-colors shadow-sm"
+						   href="#">
+							Más información <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+						</a>
+											</div>
+				</div>
+								<div class="session-card group bg-card-wash rounded-xl border border-slate-border hover:border-accent-cerulean/50 transition-all duration-300 hover:shadow-xl flex flex-col justify-between overflow-hidden"
+					 data-keywords="marc sendrós pocus en paciente crítico: mirar para decidir ecografía clínica">
+					<div class="p-space-lg space-y-space-md">
+						<div class="flex items-center justify-between gap-space-xs">
+														<div class="flex items-baseline gap-1 bg-navy-deep text-card-wash px-space-sm py-1 rounded-md font-headline-sm text-headline-sm font-bold shadow-sm">
+								<span>22</span>
+								<span class="text-xs font-semibold uppercase text-accent-cyan">OCT</span>							</div>
+																												<span class="inline-block px-space-xs py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-fixed text-navy-deep">Ecografía Clínica</span>
+													</div>
+												<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-slate-border/60">
+														<img class="w-14 h-14 rounded-lg object-cover flex-shrink-0 shadow-sm" alt="Marc Sendrós" src="assets/img/placeholder-foto.svg" />
+														<div class="min-w-0">
+								<p class="font-headline-sm text-sm text-navy-deep font-bold truncate">Marc Sendrós</p>
+								<p class="font-body-sm text-xs text-slate-body truncate">Enfermero Intensivista | Especializado en Ecografía Clínica y Acceso Vascular</p>							</div>
+						</div>
+												<div class="space-y-space-2xs">
+														<h3 class="font-headline-md text-headline-md text-navy-deep group-hover:text-secondary transition-colors font-bold leading-snug">POCUS en paciente crítico: mirar para decidir</h3>
+																					<p class="font-body-md text-body-md text-slate-body line-clamp-3">Te contamos las claves de POCUS para una mejor valoración y tratamiento del paciente crítico.</p>
+													</div>
+					</div>
+					<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-slate-border flex items-center justify-between">
+						<span class="font-body-sm text-xs font-medium text-slate-body flex items-center gap-1">
+							<span class="material-symbols-outlined text-[16px] text-badge-emerald">videocam</span> Sesión en directo						</span>
+												<a class="inline-flex items-center gap-1 bg-navy-deep text-card-wash hover:text-on-primary hover:bg-secondary font-label-button text-xs py-2 px-space-sm rounded-md transition-colors shadow-sm"
+						   href="sesion.html">
+							Más información <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+						</a>
+											</div>
+				</div>
+								<div class="session-card group bg-card-wash rounded-xl border border-slate-border hover:border-accent-cerulean/50 transition-all duration-300 hover:shadow-xl flex flex-col justify-between overflow-hidden"
+					 data-keywords="elena patrón  legal y criterio">
+					<div class="p-space-lg space-y-space-md">
+						<div class="flex items-center justify-between gap-space-xs">
+														<div class="flex items-baseline gap-1 bg-navy-deep text-card-wash px-space-sm py-1 rounded-md font-headline-sm text-headline-sm font-bold shadow-sm">
+								<span>09</span>
+								<span class="text-xs font-semibold uppercase text-accent-cyan">OCT</span>							</div>
+																												<span class="inline-block px-space-xs py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-fixed text-navy-deep">Legal y Criterio</span>
+													</div>
+												<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-slate-border/60">
+														<div class="w-14 h-14 rounded-lg bg-secondary-fixed/40 flex-shrink-0 flex items-center justify-center text-secondary">
+								<span class="material-symbols-outlined text-[24px]">person</span>
+							</div>
+														<div class="min-w-0">
+								<p class="font-headline-sm text-sm text-navy-deep font-bold truncate">Elena Patrón</p>
+								<p class="font-body-sm text-xs text-slate-body truncate">Infermera Assistencial &amp; Jurista Especialista en Dret Sanitari</p>							</div>
+						</div>
+												<div class="space-y-space-2xs">
+																				</div>
+					</div>
+					<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-slate-border flex items-center justify-between">
+						<span class="font-body-sm text-xs font-medium text-slate-body flex items-center gap-1">
+							<span class="material-symbols-outlined text-[16px] text-badge-emerald">videocam</span> Sesión en directo						</span>
+												<a class="inline-flex items-center gap-1 bg-navy-deep text-card-wash hover:text-on-primary hover:bg-secondary font-label-button text-xs py-2 px-space-sm rounded-md transition-colors shadow-sm"
+						   href="#">
+							Más información <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+						</a>
+											</div>
+				</div>
+								<div class="session-card group bg-card-wash rounded-xl border border-slate-border hover:border-accent-cerulean/50 transition-all duration-300 hover:shadow-xl flex flex-col justify-between overflow-hidden"
+					 data-keywords="elena patrón aaaaa legal y criterio">
+					<div class="p-space-lg space-y-space-md">
+						<div class="flex items-center justify-between gap-space-xs">
+														<div class="flex items-baseline gap-1 bg-navy-deep text-card-wash px-space-sm py-1 rounded-md font-headline-sm text-headline-sm font-bold shadow-sm">
+								<span>25</span>
+								<span class="text-xs font-semibold uppercase text-accent-cyan">SEP</span>							</div>
+																												<span class="inline-block px-space-xs py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-fixed text-navy-deep">Legal y Criterio</span>
+													</div>
+												<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-slate-border/60">
+														<div class="w-14 h-14 rounded-lg bg-secondary-fixed/40 flex-shrink-0 flex items-center justify-center text-secondary">
+								<span class="material-symbols-outlined text-[24px]">person</span>
+							</div>
+														<div class="min-w-0">
+								<p class="font-headline-sm text-sm text-navy-deep font-bold truncate">Elena Patrón</p>
+								<p class="font-body-sm text-xs text-slate-body truncate">Infermera Assistencial &amp; Jurista Especialista en Dret Sanitari</p>							</div>
+						</div>
+												<div class="space-y-space-2xs">
+														<h3 class="font-headline-md text-headline-md text-navy-deep group-hover:text-secondary transition-colors font-bold leading-snug">aaaaa</h3>
+																				</div>
+					</div>
+					<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-slate-border flex items-center justify-between">
+						<span class="font-body-sm text-xs font-medium text-slate-body flex items-center gap-1">
+							<span class="material-symbols-outlined text-[16px] text-badge-emerald">videocam</span> Sesión en directo						</span>
+												<a class="inline-flex items-center gap-1 bg-navy-deep text-card-wash hover:text-on-primary hover:bg-secondary font-label-button text-xs py-2 px-space-sm rounded-md transition-colors shadow-sm"
+						   href="#">
+							Más información <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+						</a>
+											</div>
+				</div>
+							</div>
+		</div>
+	</section>
+
+	<!-- FEATURED: PROGRAMA TOTAL DEEP DIVE -->
+	<section class="w-full bg-surface-container-low py-space-3xl" id="membre-total">
+		<div class="max-w-[1200px] mx-auto px-space-lg">
+			<div class="rounded-2xl bg-gradient-to-br from-navy-deep via-navy-mid to-navy-surface text-card-wash p-space-xl md:p-space-3xl relative overflow-hidden shadow-2xl border border-slate-border/20">
+				<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+					<div class="lg:col-span-5 flex flex-col items-center text-center justify-center p-space-xl rounded-xl bg-card-wash/5 border border-card-wash/10 backdrop-blur-md">
+						<div class="w-24 h-24 rounded-full bg-gradient-to-tr from-accent-cyan to-accent-cerulean flex items-center justify-center mb-space-md shadow-lg shadow-accent-cyan/25">
+							<span class="material-symbols-outlined text-card-wash text-[48px]">workspace_premium</span>
+						</div>
+						<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cyan font-bold">Acreditación Institucional</span>
+						<h3 class="font-headline-xl text-headline-xl text-card-wash mt-space-2xs font-extrabold tracking-tight">TOTAL</h3>
+						<p class="font-label-button text-label-button text-surface-container-high tracking-wider uppercase mt-1">Suscripción de Conocimiento</p>
+						<div class="mt-space-md pt-space-md border-t border-card-wash/10 w-full flex justify-around text-center">
+							<div>
+								<span class="font-headline-md text-headline-md text-card-wash font-bold">10</span>
+								<p class="text-xs text-outline-variant uppercase tracking-wider">Sesiones</p>
+							</div>
+							<div class="w-px h-8 bg-card-wash/10"></div>
+							<div>
+								<span class="font-headline-md text-headline-md text-accent-cyan font-bold">100%</span>
+								<p class="text-xs text-outline-variant uppercase tracking-wider">Acceso Total</p>
+							</div>
+							<div class="w-px h-8 bg-card-wash/10"></div>
+							<div>
+								<span class="font-headline-md text-headline-md text-badge-emerald font-bold">Gratis</span>
+								<p class="text-xs text-outline-variant uppercase tracking-wider">1 session extra</p>
+							</div>
+						</div>
+					</div>
+					<div class="lg:col-span-7 space-y-space-lg">
+						<div class="space-y-space-xs">
+							<div class="inline-flex items-center gap-space-2xs text-accent-cyan font-label-badge text-label-badge uppercase font-bold tracking-wider">
+								<span class="material-symbols-outlined text-[18px]">verified</span>
+								Plan Integral para Profesionales Exigentes							</div>
+							<h2 class="font-headline-xl text-headline-xl font-extrabold text-card-wash leading-tight">Programa Total Deep Dive</h2>
+														<p class="font-body-lg text-body-lg text-surface-container-high">Mantén tus conocimientos actualizados, revisa tu práctica y entrena la toma de decisiones ante situaciones clínicas complejas. Accede al Programa completo Deep Dive y participa en todas las sesiones, casos clínicos y actividades de la edición 2026-2027.</p>
+													</div>
+						<ul class="space-y-space-sm font-body-md text-body-md text-card-wash/95">
+														<li class="flex items-start gap-space-sm">
+								<span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent-cyan/20 text-accent-cyan flex items-center justify-center mt-0.5"><span class="material-symbols-outlined text-[16px]">done</span></span>
+								<span><strong>Acceso a todo el conocimiento</strong> de la temporada 2025-26 con acceso anticipado prioritario a cada material.</span>
+							</li>
+														<li class="flex items-start gap-space-sm">
+								<span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent-cyan/20 text-accent-cyan flex items-center justify-center mt-0.5"><span class="material-symbols-outlined text-[16px]">done</span></span>
+								<span><strong>Un Deep Dive exclusivo</strong> reservado únicamente para los miembros totales del programa.</span>
+							</li>
+														<li class="flex items-start gap-space-sm">
+								<span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent-cyan/20 text-accent-cyan flex items-center justify-center mt-0.5"><span class="material-symbols-outlined text-[16px]">done</span></span>
+								<span><strong>Certificación global de aprovechamiento</strong> para tu expediente curricular continuo.</span>
+							</li>
+													</ul>
+												<div class="pt-space-xs flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+							<a class="inline-flex items-center justify-center gap-space-xs bg-accent-cyan hover:bg-accent-cerulean text-navy-deep hover:text-card-wash font-headline-sm text-headline-sm font-bold py-space-sm px-space-xl rounded-xl transition-all shadow-xl hover:scale-105 active:scale-100"
+							   href="https://buy.stripe.com/3cI9AT9gj4wX6zLfzOdZ60c" >
+								¡HAZTE MIEMBRO AHORA! <span class="material-symbols-outlined text-[20px]">lock_open</span>
+							</a>
+							<div class="flex items-center gap-space-xs text-xs font-body-sm text-outline-variant justify-center sm:justify-start">
+								<span class="material-symbols-outlined text-badge-emerald text-[18px]">verified_user</span>
+								<span>Pago 100% seguro mediante Stripe</span>
+							</div>
+						</div>
+											</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TESTIMONIALS -->
+	<section class="w-full bg-card-wash py-space-3xl border-t border-slate-border">
+		<div class="max-w-[1200px] mx-auto px-space-lg space-y-space-2xl">
+			<div class="text-center max-w-2xl mx-auto space-y-space-2xs">
+				<div class="inline-flex items-center gap-space-2xs text-[#00B67A] font-label-badge text-label-badge uppercase font-bold tracking-wider">
+					<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+					Trustpilot Verified Reviews				</div>
+				<h2 class="font-headline-xl text-headline-xl text-navy-deep font-bold">Una comunidad de sanitarios que continua creciendo</h2>
+				<p class="font-body-md text-body-md text-slate-body">Médicos de urgencias, enfermeros de UCI, técnicos del SEM y matronas avalan la metodología directa y aplicabilidad de nuestro enfoque docente.</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+								<div class="p-space-lg rounded-xl bg-surface border border-slate-border flex flex-col justify-between space-y-space-md shadow-sm hover:shadow-md transition-shadow">
+					<div class="space-y-space-xs">
+						<div class="flex items-center gap-1 text-[#00B67A]">
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+													</div>
+												<p class="font-headline-sm text-sm font-bold text-navy-deep">&ldquo;Excelente nivel de los ponentes&rdquo;</p>
+												<p class="font-body-sm text-body-sm text-slate-body leading-relaxed">&ldquo;Experiencia muy buena por la profesionalidad que hubo en el webinar. Se pasó el tiempo volando de lo interesante que fue.&rdquo;</p>
+					</div>
+					<div class="pt-space-xs border-t border-slate-border/80 flex items-center justify-between text-xs text-slate-body">
+						<span class="font-semibold text-navy-deep">Médico Adjunto de Urgencias</span>						<span class="text-[#00B67A] font-medium flex items-center gap-0.5">
+							<span class="material-symbols-outlined text-[14px]">check</span> Verificado						</span>
+					</div>
+				</div>
+								<div class="p-space-lg rounded-xl bg-surface border border-slate-border flex flex-col justify-between space-y-space-md shadow-sm hover:shadow-md transition-shadow">
+					<div class="space-y-space-xs">
+						<div class="flex items-center gap-1 text-[#00B67A]">
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+													</div>
+												<p class="font-headline-sm text-sm font-bold text-navy-deep">&ldquo;Médico Adjunto de Urgencias&rdquo;</p>
+												<p class="font-body-sm text-body-sm text-slate-body leading-relaxed">&ldquo;Formación 100% recomendada. Formadores en activo en el medio extrahospitalario y con un sistema de aprendizaje brutal. Casos reales que te encuentras en cada guardia.&rdquo;</p>
+					</div>
+					<div class="pt-space-xs border-t border-slate-border/80 flex items-center justify-between text-xs text-slate-body">
+						<span class="font-semibold text-navy-deep">Enfermero SEM Cataluña</span>						<span class="text-[#00B67A] font-medium flex items-center gap-0.5">
+							<span class="material-symbols-outlined text-[14px]">check</span> Verificado						</span>
+					</div>
+				</div>
+								<div class="p-space-lg rounded-xl bg-surface border border-slate-border flex flex-col justify-between space-y-space-md shadow-sm hover:shadow-md transition-shadow">
+					<div class="space-y-space-xs">
+						<div class="flex items-center gap-1 text-[#00B67A]">
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+														<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+													</div>
+												<p class="font-headline-sm text-sm font-bold text-navy-deep">&ldquo;El mejor contenido &rdquo;</p>
+												<p class="font-body-sm text-body-sm text-slate-body leading-relaxed">&ldquo;El valor de tener a profesionales juristas, enfermeros HEMS y expertos de UCI en un solo paquete anual no tiene comparación. Rigor absoluto.&rdquo;</p>
+					</div>
+					<div class="pt-space-xs border-t border-slate-border/80 flex items-center justify-between text-xs text-slate-body">
+						<span class="font-semibold text-navy-deep">TES Unidad Medicalizada</span>						<span class="text-[#00B67A] font-medium flex items-center gap-0.5">
+							<span class="material-symbols-outlined text-[14px]">check</span> Verificado						</span>
+					</div>
+				</div>
+							</div>
+		</div>
+	</section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-top">
+      <div class="site-footer-brand">
+        <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+          <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+        </a>
+        <p data-ca="Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut." data-es="Centro docente de entrenamiento médico y simulación clínica avanzada. Formación continuada con rigor académico y operativo para profesionales de la salud.">Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut.</p>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Públics" data-es="Públicos">Públics</h4>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Programes" data-es="Programas">Programes</h4>
+        <a href="formaciones.html" data-ca="Totes les formacions" data-es="Todas las formaciones">Totes les formacions</a>
+        <a href="listado.html" data-ca="Programa Deep Dive" data-es="Programa Deep Dive">Programa Deep Dive</a>
+        <a href="xerrades.html" data-ca="Xerrades i ponències" data-es="Charlas y ponencias">Xerrades i ponències</a>
+        <a href="sesion.html" data-ca="Sessió de mostra" data-es="Sesión de muestra">Sessió de mostra</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Legal i contacte" data-es="Legal y contacto">Legal i contacte</h4>
+        <a href="sobre-mi.html#contacto" data-ca="Contacte" data-es="Contacto">Contacte</a>
+        <a href="legal.html" data-ca="Avís legal" data-es="Aviso legal">Avís legal</a>
+        <a href="#" data-ca="Política de privacitat" data-es="Política de privacidad">Política de privacitat</a>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <span>© 2026 coSIMULATION. Tots els drets reservats.</span>
+      <span class="tr">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+        Trustpilot 4.9/5
+      </span>
+    </div>
+  </div>
+</footer>
+  <script src="assets/js/deepdive.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre mí y contacto — coSIMULATION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+  <link rel="stylesheet" href="assets/css/deepdive.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="csdd-page-body">
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+      <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+    </a>
+    <nav class="site-links" aria-label="Principal">
+      <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+      <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+      <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+      <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+    </nav>
+    <div class="site-actions">
+      <a class="site-contact" href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+    </div>
+    <details class="site-mobile">
+      <summary data-ca="Menú" data-es="Menú">Menú</summary>
+      <div class="site-mobile-links">
+        <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+        <a href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+      </div>
+    </details>
+  </div>
+</header>
+<main class="csdd-page csdd-about w-full bg-surface">
+
+	<!-- HERO -->
+	<section class="relative w-full overflow-hidden bg-gradient-to-b from-navy-deep via-navy-surface to-navy-deep text-on-primary py-space-3xl">
+		<style>
+			.hero-esther-col { min-height: 0; }
+			.hero-esther-glow {
+				position: absolute;
+				bottom: 5%;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 140%;
+				height: 90%;
+				background: radial-gradient(ellipse at center, rgba(0, 166, 251, 0.35) 0%, transparent 65%);
+				filter: blur(50px);
+				z-index: 0;
+				pointer-events: none;
+			}
+			.hero-esther-mask {
+				position: relative;
+				z-index: 1;
+				max-height: 82vh;
+				border-radius: 1rem;
+				-webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+				mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+			}
+			.hero-esther-img {
+				max-height: 82vh;
+				height: auto;
+				width: auto;
+				max-width: 100%;
+				object-fit: contain;
+				filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35)) saturate(1.05) contrast(1.03);
+			}
+			@media (max-width: 1023px) {
+				.hero-esther-mask,
+				.hero-esther-img { max-height: 60vh; }
+			}
+			@media (max-width: 767px) {
+				.hero-esther-col {
+					width: 100%;
+					margin-top: 2rem;
+					justify-content: center !important;
+				}
+				.hero-esther-mask,
+				.hero-esther-img { max-height: 52vh; }
+			}
+		</style>
+		<div class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-accent-cyan/15 blur-3xl"></div>
+		<div class="pointer-events-none absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-secondary-container/10 blur-3xl"></div>
+		<div class="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-space-2xl px-space-lg lg:grid-cols-12">
+			<div class="space-y-space-md lg:col-span-7">
+									<div class="inline-flex items-center gap-space-xs rounded-full border border-card-wash/15 bg-card-wash/10 px-space-sm py-space-2xs backdrop-blur-md">
+						<span class="h-2 w-2 rounded-full bg-accent-cyan animate-pulse"></span>
+						<span class="font-label-badge text-label-badge text-card-wash uppercase tracking-widest">Sobre mí y contacto</span>
+					</div>
+								<h1 class="font-display-hero text-display-hero text-card-wash tracking-tight">
+					Esther Collell											<span class="mt-space-xs block font-headline-lg text-headline-lg text-accent-cyan">Enfermera, docente y facilitadora de aprendizaje a través de la Simulación Clínica</span>
+									</h1>
+									<p class="max-w-2xl font-body-lg text-body-lg leading-relaxed text-surface-container-high">Enfermera asistencial especializada en paciente crítico y emergencias, y fundadora de coSIMULATION. Convencida de que la competencia profesional se construye experimentando, reflexionando y confiando en las propias capacidades.</p>
+													<div class="flex flex-wrap gap-space-sm pt-space-xs">
+													<a href="#contacto" class="inline-flex items-center gap-space-xs rounded-lg bg-accent-cyan px-space-lg py-space-sm font-label-button text-label-button text-on-primary shadow-md transition-all hover:-translate-y-0.5 hover:bg-accent-cerulean">
+								<span class="material-symbols-outlined text-[18px]">mail</span>Escríbeme							</a>
+																			<a href="#trayectoria" class="inline-flex items-center gap-space-xs rounded-lg border border-card-wash/20 bg-card-wash/10 px-space-lg py-space-sm font-label-button text-label-button text-card-wash backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-card-wash/20">
+								<span class="material-symbols-outlined text-[18px]">arrow_downward</span>Conocer mi trayectoria							</a>
+											</div>
+													<div class="grid grid-cols-1 gap-space-sm pt-space-sm md:grid-cols-3 lg:hidden">
+													<div class="rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-lg backdrop-blur-xl">
+								<p class="font-display-hero text-display-hero text-accent-cyan">30+</p>
+								<p class="font-body-sm text-body-sm text-surface-container-high">años de experiencia clínica</p>
+							</div>
+																			<div class="rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-lg backdrop-blur-xl">
+								<p class="font-display-hero text-display-hero text-accent-cyan">15+</p>
+								<p class="font-body-sm text-body-sm text-surface-container-high">años en docencia sanitaria</p>
+							</div>
+																			<div class="flex items-center gap-space-sm rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-md backdrop-blur-xl">
+								<span class="material-symbols-outlined text-[28px] text-accent-cyan">emergency</span>
+								<p class="font-body-sm text-body-sm text-surface-container-high">SEM, UCI y Urgencias del Hospital de Granollers: cada decisión importa.</p>
+							</div>
+											</div>
+							</div>
+			<div class="hero-esther-col relative flex flex-col items-center justify-end gap-space-md self-end lg:col-span-5 lg:flex-row lg:items-center lg:justify-start lg:gap-8">
+									<div class="hidden flex-col gap-space-sm lg:flex lg:w-[45%]">
+													<div class="rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-lg backdrop-blur-xl">
+								<p class="font-display-hero text-display-hero text-accent-cyan">30+</p>
+								<p class="font-body-sm text-body-sm text-surface-container-high">años de experiencia clínica</p>
+							</div>
+																			<div class="rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-lg backdrop-blur-xl">
+								<p class="font-display-hero text-display-hero text-accent-cyan">15+</p>
+								<p class="font-body-sm text-body-sm text-surface-container-high">años en docencia sanitaria</p>
+							</div>
+																			<div class="flex items-center gap-space-sm rounded-2xl border border-card-wash/15 bg-card-wash/5 p-space-md backdrop-blur-xl">
+								<span class="material-symbols-outlined text-[28px] text-accent-cyan">emergency</span>
+								<p class="font-body-sm text-body-sm text-surface-container-high">SEM, UCI y Urgencias del Hospital de Granollers: cada decisión importa.</p>
+							</div>
+											</div>
+								<div class="hero-esther-glow" aria-hidden="true"></div>
+				<div class="hero-esther-mask w-full lg:w-[55%]">
+					<img
+						src="http://localhost:8001/wp-content/themes/cosimulation/assets/img/esther-colell.png"
+						alt="Esther Collell"
+						class="hero-esther-img"
+						loading="eager"
+					>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- HISTORIA + FILOSOFÍA -->
+	<section class="w-full py-space-3xl">
+		<div class="mx-auto grid max-w-[1200px] grid-cols-1 gap-space-xl px-space-lg lg:grid-cols-2">
+			<div class="space-y-space-md">
+									<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cerulean">Mi historia</span>
+													<h2 class="font-headline-xl text-headline-xl tracking-tight text-navy-deep">Detrás de cada paciente hay una persona</h2>
+													<p class="font-body-md text-body-md text-slate-body">Tras más de 30 años de experiencia clínica y 15 dedicada a la docencia sanitaria, he aprendido que la verdadera competencia profesional no se construye solo con teoría, sino experimentando, reflexionando y confiando en las propias capacidades.</p>
+													<p class="font-body-md text-body-md text-slate-body">Mi trayectoria en el Sistema de Emergencias Médicas (SEM) y en la UCI y Urgencias del Hospital de Granollers me ha enseñado que cada decisión importa. Detrás de cada paciente hay una persona que merece ser atendida por profesionales seguros, empáticos y excelentes.</p>
+													<div class="flex gap-space-sm rounded-2xl border border-slate-border bg-card-wash p-space-lg shadow-sm">
+						<span class="material-symbols-outlined text-badge-rose">favorite</span>
+						<p class="font-body-md text-body-md text-slate-body">Mi propio proceso como paciente fue mi <strong>“tsunami personal”</strong>. Esa vulnerabilidad me hizo comprender la importancia de contar con profesionales verdaderamente preparados y humanos.</p>
+					</div>
+							</div>
+
+			<div class="space-y-space-md rounded-2xl bg-gradient-to-br from-navy-deep to-navy-mid p-space-xl text-card-wash shadow-xl">
+									<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cyan">Mi filosofía</span>
+													<h2 class="font-headline-lg text-headline-lg">Aprender haciendo, con respeto y reflexión</h2>
+													<p class="font-body-md text-body-md text-surface-container-high">La Simulación Clínica permite equivocarse sin riesgo para el paciente, analizar el proceso y mejorar las habilidades técnicas y humanas.</p>
+													<div class="rounded-xl border border-card-wash/15 bg-card-wash/10 p-space-md text-center">
+						<p class="font-headline-lg text-headline-lg text-accent-cyan">V = (Conocimientos + Habilidades) × Actitud</p>
+					</div>
+													<div class="grid grid-cols-1 gap-space-xs font-body-sm text-body-sm sm:grid-cols-3">
+													<div class="rounded-lg border border-card-wash/10 bg-card-wash/5 p-space-sm">
+								<span class="material-symbols-outlined text-accent-cyan">menu_book</span>
+								<p class="font-semibold text-card-wash">Saber</p>
+								<p class="text-surface-container-high">Conocimiento científico y actualización constante.</p>
+							</div>
+													<div class="rounded-lg border border-card-wash/10 bg-card-wash/5 p-space-sm">
+								<span class="material-symbols-outlined text-accent-cyan">medical_services</span>
+								<p class="font-semibold text-card-wash">Saber hacer</p>
+								<p class="text-surface-container-high">Destrezas técnicas aplicadas a escenarios reales.</p>
+							</div>
+													<div class="rounded-lg border border-card-wash/10 bg-card-wash/5 p-space-sm">
+								<span class="material-symbols-outlined text-accent-cyan">diversity_3</span>
+								<p class="font-semibold text-card-wash">Saber estar y ser</p>
+								<p class="text-surface-container-high">Liderazgo, comunicación, empatía y respeto.</p>
+							</div>
+											</div>
+							</div>
+		</div>
+	</section>
+
+	<!-- TRAYECTORIA -->
+	<section id="trayectoria" class="sec w-full bg-surface-container-low py-space-3xl">
+		<div class="mx-auto max-w-[1200px] px-space-lg">
+							<div class="mb-space-xl max-w-2xl">
+											<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cerulean">Formación y especialización</span>
+																<h2 class="mt-space-xs font-headline-xl text-headline-xl tracking-tight text-navy-deep">Práctica asistencial, docencia y simulación</h2>
+																<p class="mt-space-xs font-body-md text-body-md text-slate-body">Me he formado para transformar mi experiencia en una metodología de aprendizaje eficaz, práctica y humana.</p>
+									</div>
+										<div class="grid grid-cols-1 gap-space-md lg:grid-cols-3">
+											<div class="rounded-2xl border border-slate-border bg-card-wash p-space-xl shadow-sm">
+							<span class="mb-space-sm inline-flex rounded-xl bg-navy-deep p-space-xs text-accent-cyan">
+								<span class="material-symbols-outlined">ecg_heart</span>
+							</span>
+							<h3 class="mb-space-sm font-headline-md text-headline-md text-navy-deep">Práctica asistencial</h3>
+															<ul class="space-y-space-xs font-body-sm text-body-sm text-slate-body">
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Enfermera asistencial de paciente crítico, base concertada del SEM, N608.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Enfermera de urgencias y UCI.</span>
+										</li>
+																	</ul>
+													</div>
+											<div class="rounded-2xl border border-slate-border bg-card-wash p-space-xl shadow-sm">
+							<span class="mb-space-sm inline-flex rounded-xl bg-navy-deep p-space-xs text-accent-cyan">
+								<span class="material-symbols-outlined">school</span>
+							</span>
+							<h3 class="mb-space-sm font-headline-md text-headline-md text-navy-deep">Docencia y facilitación</h3>
+															<ul class="space-y-space-xs font-body-sm text-body-sm text-slate-body">
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Facilitadora de procesos de aprendizaje y docente sanitaria en metodologías de alto rendimiento competencial.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Docente colaboradora de la Fundació Universitària del Bages, Grado de Enfermería.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Instructora colaboradora del European Resuscitation Council; directora e instructora de cursos de SVB y SVe.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Referente CCR del programa SVe en la Catalunya Central: Bages, Moianès, Osona, Berguedà y Solsonès.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>14 años como profesora del CFGM de Técnico en Emergencias Sanitarias.</span>
+										</li>
+																	</ul>
+													</div>
+											<div class="rounded-2xl border border-slate-border bg-card-wash p-space-xl shadow-sm">
+							<span class="mb-space-sm inline-flex rounded-xl bg-navy-deep p-space-xs text-accent-cyan">
+								<span class="material-symbols-outlined">workspace_premium</span>
+							</span>
+							<h3 class="mb-space-sm font-headline-md text-headline-md text-navy-deep">Titulaciones</h3>
+															<ul class="space-y-space-xs font-body-sm text-body-sm text-slate-body">
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Máster oficial universitario en Metodología de la Simulación aplicada a la Formación de profesionales de Ciencias de la Salud y Sociales.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Postgrado en Emergencias Extrahospitalarias, en Paciente Crítico y en Paciente Crítico Traumático.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>CAP en UPC.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Facilitadora certificada Model Bridge®.</span>
+										</li>
+																			<li class="flex gap-space-xs">
+											<span class="material-symbols-outlined text-[18px] text-badge-emerald">check_circle</span>
+											<span>Directora de coSIMULATION.</span>
+										</li>
+																	</ul>
+													</div>
+									</div>
+					</div>
+	</section>
+
+	<!-- COMPROMISO -->
+	<section class="w-full py-space-3xl">
+		<div class="mx-auto max-w-[1200px] px-space-lg">
+			<div class="grid grid-cols-1 items-center gap-space-xl rounded-2xl border border-slate-border bg-card-wash p-space-xl shadow-sm lg:grid-cols-2 lg:p-space-2xl">
+				<div class="space-y-space-sm">
+											<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cerulean">Mi compromiso</span>
+																<h2 class="font-headline-xl text-headline-xl tracking-tight text-navy-deep">Acompañar a quienes cuidan</h2>
+																<p class="font-body-md text-body-md text-slate-body">En coSIMULATION ayudo a profesionales y equipos a entrenar su confianza clínica, con experiencias de aprendizaje transformadoras.</p>
+									</div>
+				<div class="space-y-space-sm">
+											<p class="font-body-md text-body-md text-slate-body">Trabajo con instituciones, empresas y profesionales para mejorar la seguridad del paciente, la satisfacción del usuario y el bienestar del propio equipo.</p>
+																<p class="font-body-md text-body-md font-semibold text-navy-deep">Porque formarse no es solo aprender una técnica: es crecer como profesional y como persona. Cada sesión de simulación es una oportunidad para practicar la excelencia.</p>
+									</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTACTO -->
+	<section id="contacto" class="sec w-full bg-gradient-to-b from-surface-container-low to-surface py-space-3xl">
+		<div class="mx-auto max-w-[1200px] px-space-lg">
+							<div class="mb-space-xl max-w-2xl">
+											<span class="font-label-badge text-label-badge uppercase tracking-widest text-accent-cerulean">¿Hablamos?</span>
+																<h2 class="mt-space-xs font-headline-xl text-headline-xl tracking-tight text-navy-deep">¡Contáctanos!</h2>
+																<p class="mt-space-xs font-body-md text-body-md text-slate-body">¿Quieres incorporar la simulación clínica a tu centro o empresa? Juntos podemos diseñar una formación adaptada a tus necesidades y objetivos.</p>
+									</div>
+						<div class="grid grid-cols-1 items-start gap-space-xl lg:grid-cols-12">
+									<div class="space-y-space-md lg:col-span-4">
+						<div class="space-y-space-md rounded-2xl bg-navy-deep p-space-xl text-card-wash">
+															<p class="font-headline-md text-headline-md">Esther Collell</p>
+																						<a href="https://wa.me/34630481134" class="flex items-center gap-space-sm transition-colors hover:text-accent-cyan">
+									<span class="rounded-full bg-accent-cyan/20 p-space-xs text-accent-cyan"><span class="material-symbols-outlined">call</span></span>
+									<span>
+										<span class="block font-label-badge text-label-badge uppercase tracking-widest text-outline-variant">Móvil y WhatsApp</span>
+										630 48 11 34									</span>
+								</a>
+																						<a href="mailto:esthercollell@cosimulation.es" class="flex items-center gap-space-sm transition-colors hover:text-accent-cyan">
+									<span class="rounded-full bg-accent-cyan/20 p-space-xs text-accent-cyan"><span class="material-symbols-outlined">mail</span></span>
+									<span>
+										<span class="block font-label-badge text-label-badge uppercase tracking-widest text-outline-variant">Email</span>
+										<span class="break-all">esthercollell@cosimulation.es</span>
+									</span>
+								</a>
+																						<div class="flex items-center gap-space-sm">
+									<span class="rounded-full bg-accent-cyan/20 p-space-xs text-accent-cyan"><span class="material-symbols-outlined">location_on</span></span>
+									<span>
+										<span class="block font-label-badge text-label-badge uppercase tracking-widest text-outline-variant">Ubicación</span>
+										Sant Fruitós de Bages, Barcelona									</span>
+								</div>
+													</div>
+					</div>
+				
+				<div class="rounded-2xl border border-slate-border bg-card-wash p-space-xl shadow-sm lg:col-span-8">
+										<form action="#" method="post" class="space-y-space-md">
+						<input type="text" name="csdd_hp" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+						<input type="hidden" name="csdd_ts" value="1794817114">
+						<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+							<label class="block font-body-sm text-body-sm font-semibold text-navy-deep">Nombre								<input class="inp mt-1 font-normal" type="text" name="nombre" value="" required>
+							</label>
+							<label class="block font-body-sm text-body-sm font-semibold text-navy-deep">Correo electrónico								<input class="inp mt-1 font-normal" type="email" name="email" value="" required>
+							</label>
+						</div>
+						<label class="block font-body-sm text-body-sm font-semibold text-navy-deep">Teléfono							<input class="inp mt-1 font-normal" type="tel" name="telefono" value="">
+						</label>
+						<label class="block font-body-sm text-body-sm font-semibold text-navy-deep">Mensaje							<textarea class="inp mt-1 font-normal" name="mensaje" rows="5" required></textarea>
+						</label>
+													<label class="flex items-start gap-space-xs font-body-sm text-body-sm text-slate-body">
+								<input type="checkbox" required class="mt-1 h-4 w-4 accent-[#00A6FB]">
+								<span>He leído y acepto la <a href="https://cosimulation.es/politica-de-privacidad/" target="_blank" rel="noopener">Política de Privacidad</a>.</span>
+							</label>
+																			<details class="rounded-xl border border-slate-border bg-slate-subtle p-space-md font-body-sm text-body-sm text-slate-body">
+								<summary class="cursor-pointer font-semibold text-navy-deep">Información básica sobre protección de datos</summary>
+								<ul class="mt-space-sm space-y-space-xs">
+																			<li><strong>Responsable del tratamiento:</strong> Esther Collell Blanco, NIF 52157223P.</li>
+																			<li><strong>Finalidad:</strong> gestionar las consultas y solicitudes de presupuesto realizadas a través de este formulario.</li>
+																			<li><strong>Legitimación:</strong> aplicación de medidas precontractuales a petición del interesado.</li>
+																			<li><strong>Destinatarios:</strong> no se cederán datos a terceros, salvo obligación legal.</li>
+																			<li><strong>Conservación:</strong> los datos se conservarán durante el tiempo necesario para gestionar la consulta o solicitud realizada.</li>
+																			<li><strong>Derechos:</strong> puede acceder, rectificar y suprimir sus datos, así como ejercer otros derechos reconocidos en la normativa de protección de datos, dirigiéndose a <a href="mailto:esthercollell@cosimulation.es">esthercollell@cosimulation.es</a>.</li>
+																			<li><strong>Información adicional:</strong> puede consultarla de forma detallada en la <a href="https://cosimulation.es/politica-de-privacidad/">Política de Privacidad</a>.</li>
+																	</ul>
+							</details>
+																			<button type="submit" name="csdd_send" value="1" class="inline-flex items-center justify-center gap-space-xs rounded-lg bg-accent-cyan px-space-xl py-space-sm font-label-button text-label-button text-on-primary shadow-md transition-all hover:-translate-y-0.5 hover:bg-accent-cerulean">
+								<span class="material-symbols-outlined text-[18px]">send</span>Enviar							</button>
+											</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-top">
+      <div class="site-footer-brand">
+        <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+          <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+        </a>
+        <p data-ca="Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut." data-es="Centro docente de entrenamiento médico y simulación clínica avanzada. Formación continuada con rigor académico y operativo para profesionales de la salud.">Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut.</p>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Públics" data-es="Públicos">Públics</h4>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Programes" data-es="Programas">Programes</h4>
+        <a href="formaciones.html" data-ca="Totes les formacions" data-es="Todas las formaciones">Totes les formacions</a>
+        <a href="listado.html" data-ca="Programa Deep Dive" data-es="Programa Deep Dive">Programa Deep Dive</a>
+        <a href="xerrades.html" data-ca="Xerrades i ponències" data-es="Charlas y ponencias">Xerrades i ponències</a>
+        <a href="sesion.html" data-ca="Sessió de mostra" data-es="Sesión de muestra">Sessió de mostra</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Legal i contacte" data-es="Legal y contacto">Legal i contacte</h4>
+        <a href="sobre-mi.html#contacto" data-ca="Contacte" data-es="Contacto">Contacte</a>
+        <a href="legal.html" data-ca="Avís legal" data-es="Aviso legal">Avís legal</a>
+        <a href="#" data-ca="Política de privacitat" data-es="Política de privacidad">Política de privacitat</a>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <span>© 2026 coSIMULATION. Tots els drets reservats.</span>
+      <span class="tr">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+        Trustpilot 4.9/5
+      </span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/deepdive.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

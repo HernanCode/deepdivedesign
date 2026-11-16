@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>coSIMULATION — Formación sanitaria y simulación clínica avanzada</title>
+<meta name="description" content="Formación sanitaria de alto nivel en urgencias, emergencias y cuidados críticos. Para profesionales, empresas e instituciones, y particulares.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+<style>
+/* ============================================================
+   coSIMULATION · landing — single file
+   ============================================================ */
+:root{
+  --navy-deep:#0b2545;
+  --navy-mid:#134074;
+  --navy-surface:#0f172a;
+  --accent:#00a6fb;          /* single accent hue (cyan) */
+  --accent-deep:#0582ca;
+  --accent-ink:#006399;
+  --emerald:#059669;
+  --green:#00B67A;
+  --surface:#f7f9fb;
+  --surface-low:#eef2f6;
+  --card:#ffffff;
+  --ink:#0b2545;
+  --slate:#475569;
+  --muted-dark:#a9b9cb;
+  --line:rgba(11,37,69,.12);
+  --line-dark:rgba(255,255,255,.14);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-io:cubic-bezier(.4,0,.2,1);
+  --font-display:"Manrope",ui-sans-serif,system-ui,sans-serif;
+  --font-body:"Public Sans",ui-sans-serif,system-ui,sans-serif;
+}
+
+/* first rule: no white flash on a dark design */
+html,body{background:var(--navy-deep);color:var(--ink);margin:0;padding:0}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.6;
+  color:var(--ink);
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-variant-numeric:tabular-nums;
+}
+::selection{background:rgba(0,166,251,.25);color:var(--navy-deep)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+h1,h2,h3,h4,p{margin:0}
+svg{display:block}
+
+.container{width:100%;max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+@media(min-width:768px){.container{padding-left:48px;padding-right:48px}}
+
+/* ---------- type ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-display);font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);opacity:.7}
+.eyebrow.on-dark{color:var(--accent)}
+.eyebrow.on-light{color:var(--accent-deep)}
+
+h1.display{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.3rem,5.2vw,4.4rem);
+  line-height:1.03;letter-spacing:-.03em;color:#fff;
+}
+h2.title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.7rem,3.2vw,2.5rem);
+  line-height:1.08;letter-spacing:-.022em;color:var(--navy-deep);
+}
+h3.card-title{font-family:var(--font-display);font-weight:700;font-size:1.4rem;letter-spacing:-.015em;color:var(--navy-deep)}
+.lede{font-size:17px;color:var(--slate);max-width:34rem;line-height:1.62}
+.lede.on-dark{color:var(--muted-dark)}
+
+/* two-tone headline */
+.tone{color:var(--accent)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:.01em;
+  padding:13px 26px;border-radius:8px;white-space:nowrap;
+  transition:transform .25s var(--ease-io),background .25s var(--ease-io),color .25s var(--ease-io),box-shadow .25s var(--ease-io);
+}
+.btn:active{transform:scale(.97)}
+.btn .arrow{transition:transform .25s var(--ease-io)}
+.btn:hover .arrow{transform:translateX(3px)}
+.btn-primary{background:var(--accent);color:#04101f}
+.btn-primary:hover{background:var(--accent-deep);color:#fff}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line-dark)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-dark{background:var(--navy-deep);color:#fff}
+.btn-dark:hover{background:var(--navy-mid)}
+.btn-lg{padding:15px 30px;font-size:15px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:#fff;
+  border-bottom:1px solid rgba(11,37,69,.08);
+  transition:box-shadow .3s var(--ease-io);
+}
+.nav.scrolled{box-shadow:0 6px 20px rgba(11,37,69,.10)}
+.nav-pill{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:8px;
+  padding:12px 24px;
+}
+@media(min-width:768px){.nav-pill{padding:12px 48px}}
+.brand{display:flex;align-items:center;gap:11px;margin-right:8px}
+.brand-logo{display:inline-flex;align-items:center;border-radius:7px;overflow:hidden;line-height:0;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.brand-logo img{height:34px;width:auto;display:block}
+.brand-mark{
+  width:32px;height:32px;border-radius:9px;flex:none;
+  background:var(--accent);
+  color:#04101f;display:grid;place-items:center;
+}
+.brand-mark svg{width:19px;height:19px}
+.brand-name{
+  font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.02em;color:#fff;
+  display:flex;align-items:baseline;gap:4px;
+}
+.brand-name small{font-weight:600;font-size:11px;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+.nav-links{display:none;align-items:center;gap:2px;margin:0 auto}
+.nav-links a{
+  font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--slate);
+  padding:9px 15px;border-radius:999px;transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--navy-deep);background:rgba(11,37,69,.06)}
+.nav-cta{display:none}
+.burger{
+  margin-left:auto;width:42px;height:42px;border-radius:999px;flex:none;
+  display:grid;place-items:center;color:#fff;
+  background:rgba(255,255,255,.08);border:1px solid var(--line-dark);
+}
+.nav-pill .burger{color:var(--navy-deep);background:rgba(11,37,69,.05);border-color:var(--line)}
+.nav-pill .brand-logo{box-shadow:none}
+@media(min-width:920px){
+  .nav-links{display:flex}
+  .nav-cta{display:inline-flex}
+  .burger{display:none}
+}
+
+/* mobile menu */
+.menu{
+  position:fixed;inset:0;z-index:60;background:var(--navy-surface);
+  display:flex;flex-direction:column;padding:22px 24px;
+  opacity:0;pointer-events:none;transition:opacity .3s var(--ease-io);
+}
+.menu.open{opacity:1;pointer-events:auto}
+.menu-top{display:flex;align-items:center;justify-content:space-between}
+.menu-links{display:flex;flex-direction:column;gap:6px;margin-top:40px}
+.menu-links a{
+  font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:#fff;
+  padding:12px 0;border-bottom:1px solid var(--line-dark);letter-spacing:-.02em;
+}
+.menu-links a span{color:var(--accent);font-weight:600;font-size:12px;letter-spacing:.12em;margin-right:14px;vertical-align:middle}
+.menu-cta{margin-top:28px}
+body.menu-locked{overflow:hidden}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  color:#fff;overflow:hidden;isolation:isolate;
+  background:var(--navy-deep);
+}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.7) saturate(1.08) contrast(1.02)}
+.hero-scrim{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(11,37,69,.72) 0%,rgba(11,37,69,.45) 42%,rgba(11,37,69,.95) 100%),
+    linear-gradient(100deg,rgba(11,37,69,.92) 0%,rgba(11,37,69,.6) 46%,rgba(11,37,69,.2) 78%,transparent 100%);
+}
+.hero-inner{
+  position:relative;z-index:1;width:100%;
+  padding:96px 0 96px;display:flex;flex-direction:column;
+}
+.hero-copy{max-width:780px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.07);border:1px solid var(--line-dark);
+  padding:8px 15px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.hero h1{margin-top:26px}
+.hero .lede{margin-top:20px;font-size:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-trust{
+  margin-top:60px;padding-top:22px;border-top:1px solid var(--line-dark);
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;
+}
+.trust-item{display:flex;align-items:center;gap:9px;color:var(--muted-dark);font-size:13.5px}
+.trust-item svg{width:17px;height:17px;color:var(--accent);flex:none}
+.trust-item b{color:#fff;font-weight:600}
+.trust-stars{display:inline-flex;gap:2px;color:var(--green)}
+.trust-stars svg{width:15px;height:15px;color:var(--green)}
+.hero-scroll{
+  margin-top:46px;display:flex;align-items:center;gap:10px;color:var(--muted-dark);
+  font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+}
+.hero-scroll svg{width:15px;height:15px}
+
+/* ---------- section shell ---------- */
+.section{padding:clamp(64px,8vw,92px) 0}
+.section-head{max-width:720px;margin-bottom:52px}
+.section-head h2{margin-top:16px}
+.section-head .lede{margin-top:16px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.center .eyebrow::before{display:none}
+
+/* ---------- selector (heart) ---------- */
+.selector-section{background:var(--surface);border-radius:28px 28px 0 0;margin-top:-46px;position:relative;z-index:5}
+.tabs{
+  display:grid;grid-template-columns:1fr;gap:8px;
+  padding:7px;border-radius:12px;background:var(--surface-low);
+  border:1px solid var(--line);max-width:720px;
+}
+@media(min-width:680px){.tabs{grid-template-columns:1fr 1fr 1fr}}
+.tab{
+  display:flex;align-items:center;gap:11px;text-align:left;
+  padding:14px 18px;border-radius:10px;color:var(--slate);
+  font-family:var(--font-display);font-weight:600;font-size:15px;
+  transition:background .25s var(--ease-io),color .25s var(--ease-io),box-shadow .25s var(--ease-io);
+}
+.tab svg{width:19px;height:19px;flex:none;color:var(--accent-deep)}
+.tab .tab-sub{display:block;font-family:var(--font-body);font-weight:500;font-size:11.5px;color:var(--slate);opacity:.75;margin-top:1px;letter-spacing:.01em}
+.tab[aria-selected="true"]{background:var(--navy-deep);color:#fff;box-shadow:0 4px 12px rgba(11,37,69,.14)}
+.tab[aria-selected="true"] svg{color:var(--accent)}
+.tab[aria-selected="true"] .tab-sub{color:var(--muted-dark);opacity:1}
+.tab:hover:not([aria-selected="true"]){background:var(--card)}
+
+.panels{margin-top:36px;position:relative}
+.panel{display:none}
+.panel.active{display:grid;animation:panelIn .5s var(--ease)}
+@keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.panel-grid{grid-template-columns:1fr;gap:32px;align-items:stretch}
+@media(min-width:960px){.panel-grid{grid-template-columns:1.15fr .85fr;gap:56px}}
+.panel-body h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.02em;color:var(--navy-deep);line-height:1.12}
+.panel-body>p{margin-top:14px;color:var(--slate);max-width:30rem}
+.benefits{margin-top:26px;display:grid;gap:13px}
+.benefit{display:flex;gap:13px;align-items:flex-start}
+.benefit .check{
+  width:22px;height:22px;border-radius:7px;flex:none;margin-top:2px;
+  background:rgba(0,166,251,.14);color:var(--accent-deep);display:grid;place-items:center;
+}
+.benefit .check svg{width:13px;height:13px}
+.benefit b{color:var(--navy-deep);font-weight:600}
+.benefit span{color:var(--slate);font-size:15.5px}
+.panel-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
+.panel-actions .note{font-size:13px;color:var(--slate);display:inline-flex;align-items:center;gap:7px}
+.panel-actions .note svg{width:15px;height:15px;color:var(--emerald)}
+
+.fact-card{
+  background:linear-gradient(160deg,var(--navy-deep),var(--navy-surface));
+  color:#fff;border-radius:14px;padding:34px 32px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 8px 24px rgba(11,37,69,.16);
+}
+.fact-label{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.fact-big{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1;margin-top:14px}
+.fact-big em{font-style:normal;color:var(--accent)}
+.fact-caption{margin-top:10px;color:var(--muted-dark);font-size:14.5px;max-width:22rem}
+.fact-stats{margin-top:26px;border-top:1px solid var(--line-dark);padding-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fact-stat b{font-family:var(--font-display);font-weight:700;font-size:1.35rem;color:#fff;letter-spacing:-.02em}
+.fact-stat span{display:block;font-size:12px;color:var(--muted-dark);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+
+/* ---------- method ---------- */
+.method-section{background:var(--card)}
+.steps{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:820px){.steps{grid-template-columns:1fr 1fr 1fr}}
+.step{position:relative;padding:26px 0 0;border-top:1px solid var(--line)}
+.step-num{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--accent-deep)}
+.step h3{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:-.015em;color:var(--navy-deep);margin-top:14px}
+.step p{color:var(--slate);font-size:15.5px;margin-top:10px}
+
+/* ---------- testimonials ---------- */
+.testi-section{background:var(--surface)}
+.testi-band{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-bottom:44px;font-size:14px;color:var(--slate)}
+.testi-band .g{color:var(--green)}
+.testi-band b{color:var(--navy-deep)}
+.cards{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:820px){.cards{grid-template-columns:1fr 1fr 1fr}}
+.tcard{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;
+  display:flex;flex-direction:column;gap:16px;justify-content:space-between;
+}
+.tcard .stars{display:flex;gap:2px;color:var(--green)}
+.tcard .stars svg{width:16px;height:16px}
+.tcard blockquote{font-size:15.5px;line-height:1.6;color:var(--navy-deep);margin:0}
+.tcard .who{font-family:var(--font-display);font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+.tcard .who span{display:block;font-weight:500;font-family:var(--font-body);color:var(--slate);font-size:12.5px;margin-top:2px}
+.tcard .verified{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--green);font-weight:600}
+.tcard .verified svg{width:14px;height:14px}
+
+/* ---------- final CTA ---------- */
+.cta-section{background:var(--navy-surface);color:#fff;position:relative;overflow:hidden}
+.cta-inner{position:relative;display:grid;gap:40px;grid-template-columns:1fr}
+@media(min-width:900px){.cta-inner{grid-template-columns:1.2fr .8fr;align-items:center;gap:64px}}
+.cta-inner h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.02em;color:#fff;line-height:1.1}
+.cta-inner .lede{margin-top:16px;color:var(--muted-dark)}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.contact-card{
+  background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:14px;padding:28px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.contact-card .k{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.contact-row{display:flex;align-items:center;gap:12px;margin-top:18px;color:#fff}
+.contact-row svg{width:18px;height:18px;color:var(--accent);flex:none}
+.contact-row .l{font-size:13px;color:var(--muted-dark)}
+.contact-row a{font-weight:600}
+.contact-row a:hover{color:var(--accent)}
+
+/* ---------- footer ---------- */
+.footer{background:var(--navy-surface);border-top:1px solid var(--line-dark);color:var(--muted-dark)}
+.footer-inner{padding:64px 0 40px}
+.footer-top{display:grid;gap:36px;grid-template-columns:1fr;padding-bottom:40px;border-bottom:1px solid var(--line-dark)}
+@media(min-width:820px){.footer-top{grid-template-columns:1.6fr 1fr 1fr}}
+.footer-brand p{margin-top:16px;max-width:30rem;font-size:14.5px}
+.footer-col h4{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.footer-col a{display:block;padding:7px 0;font-size:14.5px;color:var(--muted-dark);transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{padding-top:28px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted-dark)}
+.footer-bottom .trust{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:600}
+
+/* ---------- reveal / entrance ---------- */
+html.js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+html.js [data-reveal].in{opacity:1;transform:none}
+html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ---------- grain ---------- */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html.js [data-reveal],html.js [data-entrance]{opacity:1;transform:none}
+  .pulse-dot{animation:none}
+}
+
+.pg-card{display:block;transition:border-color .2s,transform .2s}
+.pg-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.pg-card h3{margin-top:12px}
+.pg-card .pg-more{display:inline-block;margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--accent-deep)}
+</style>
+</head>
+<body class="dark-hero">
+
+<!-- ===== NAV (compartida) ===== -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+      <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+    </a>
+    <nav class="site-links" aria-label="Principal">
+      <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+      <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+      <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+      <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+    </nav>
+    <div class="site-actions">
+      <a class="site-contact" href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+    </div>
+    <details class="site-mobile">
+      <summary data-ca="Menú" data-es="Menú">Menú</summary>
+      <div class="site-mobile-links">
+        <a href="formaciones.html" data-ca="Formacions" data-es="Formaciones">Formacions</a>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+        <a href="sobre-mi.html" data-ca="Sobre mi" data-es="Sobre mí">Sobre mi</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<!-- menú móvil: lo gestiona la nav compartida (.site-nav) -->
+
+
+<main id="top">
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Presentación">
+    <!-- Fondo del hero: sustituye assets/img/hero-bg.jpg por la imagen de tu diseñador -->
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/img/hero-bg.jpg" alt="">
+    </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="container">
+        <div class="hero-copy">
+          <span class="hero-badge" data-entrance style="--d:.05s">
+            Centro de simulación clínica avanzada · Barcelona
+          </span>
+          <h1 class="display" data-entrance style="--d:.15s">Formació Sanitària <span class="tone">amb Simulació Clínica</span></h1>
+          <p class="lede on-dark" data-entrance style="--d:.28s">
+            Entrenem a professionals de la salut i empreses amb una metodologia basada en la pràctica real.
+          </p>
+          <div class="hero-actions" data-entrance style="--d:.4s">
+            <a class="btn btn-primary btn-lg" href="formaciones.html">Elige tu formación
+              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#metodo">Cómo funciona</a>
+          </div>
+        </div>
+
+        <div class="hero-trust" data-entrance style="--d:.55s">
+          <span class="trust-item">
+            <span class="trust-stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+            </span>
+            <span><b>4.9/5</b> en Trustpilot</span>
+          </span>
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span><b>+180</b> reseñas verificadas</span>
+          </span>
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>
+            <span><b>En directo</b> + grabaciones HD</span>
+          </span>
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span>Formación <b>acreditada</b></span>
+          </span>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          Descubre tu formación
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SELECTOR (el corazón) ===== -->
+  <section class="selector-section section" id="para-quien">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-light">Elige tu punto de partida</span>
+        <h2 class="title">¿Para quién es la formación?</h2>
+        <p class="lede">Tres públicos, una misma exigencia: decidir mejor cuando importa. Elige el tuyo.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Públicos" data-reveal>
+        <button class="tab" role="tab" id="tab-empreses" aria-selected="true" aria-controls="panel-empreses" data-audience="empreses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 9h3.5a1 1 0 0 1 1 1V21M7 8h2M7 12h2M7 16h2M11 8h2M11 12h2"/></svg>
+          <span>Empresas<span class="tab-sub">Equipos y centros</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-per-a-tothom" aria-selected="false" aria-controls="panel-per-a-tothom" data-audience="per-a-tothom">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.9-9.7-9.4C.9 8.6 3.2 5.5 6.4 5.5c1.9 0 3.5 1 4.6 2.5 1.1-1.5 2.7-2.5 4.6-2.5 3.2 0 5.5 3.1 4.1 6.1C19.5 16.1 12 21 12 21z"/></svg>
+          <span>Para todos<span class="tab-sub">Particulares y grupos</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-professionals" aria-selected="false" aria-controls="panel-professionals" data-audience="professionals">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.2-5.2 3.6 9.4 2.4-6 1.8 1.8H21"/></svg>
+          <span>Profesionales<span class="tab-sub">Cursos y Deep Dive</span></span>
+        </button>
+      </div>
+
+      <div class="panels">
+        <div class="panel active panel-grid" role="tabpanel" id="panel-empreses" aria-labelledby="tab-empreses">
+          <div class="panel-body">
+            <h3>Equipos que no pueden fallar.</h3>
+            <p>Programa de Entrenamiento Continuado, prueba piloto y formación a medida para industrias, entornos de riesgo y equipos sanitarios.</p>
+            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Dos perfiles</b>: industria y centros sanitarios</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Entrenamiento continuado</b> durante todo el año</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Prueba piloto</b> antes de desplegar</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Deep Dive</b> para equipos sanitarios</span></div></div>
+            <div class="panel-actions">
+              <a class="btn btn-dark btn-lg" href="empreses.html">Ver Empresas <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Presupuesto sin compromiso</span>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div>
+              <span class="fact-label">Para empresas</span>
+              <div class="fact-big">100% <em>adaptado</em></div>
+              <p class="fact-caption">Contenido, formato y calendario según la realidad de tu equipo.</p>
+            </div>
+            <div class="fact-stats">
+              <div class="fact-stat"><b>In situ</b><span>o en directo</span></div>
+              <div class="fact-stat"><b>+50</b><span>Sesiones</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-grid" role="tabpanel" id="panel-per-a-tothom" aria-labelledby="tab-per-a-tothom">
+          <div class="panel-body">
+            <h3>Saber actuar en cualquier sitio.</h3>
+            <p>Formación abierta en primeros auxilios, RCP, DEA y respuesta ante emergencias cotidianas, para particulares, familias y grupos.</p>
+            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Particulares y familias</b></span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Escuelas, clubs y asociaciones</b></span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Actividades prácticas</b> con maniquíes</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Certificado</b> de asistencia</span></div></div>
+            <div class="panel-actions">
+              <a class="btn btn-dark btn-lg" href="per-a-tothom.html">Ver Para todos <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Grupos reducidos</span>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div>
+              <span class="fact-label">Para todos</span>
+              <div class="fact-big"><em>RCP</em> + DEA</div>
+              <p class="fact-caption">Primeros auxilios y respuesta ante emergencias del día a día.</p>
+            </div>
+            <div class="fact-stats">
+              <div class="fact-stat"><b>Grupos</b><span>reducidos</span></div>
+              <div class="fact-stat"><b>Cert.</b><span>incluido</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-grid" role="tabpanel" id="panel-professionals" aria-labelledby="tab-professionals">
+          <div class="panel-body">
+            <h3>Actualiza tu criterio clínico.</h3>
+            <p>Cursos especializados, Deep Dive con inscripción individual y charlas profesionales para mantenerte al día.</p>
+            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Cursos especializados</b> (POCUS, urgencias...)</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Deep Dive</b> con inscripción individual</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Charlas y ponencias</b> técnicas</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Grabaciones</b> y material</span></div></div>
+            <div class="panel-actions">
+              <a class="btn btn-dark btn-lg" href="professionals.html">Ver Profesionales <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Plazas limitadas</span>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div>
+              <span class="fact-label">Para profesionales</span>
+              <div class="fact-big"><em>Deep Dive</em></div>
+              <p class="fact-caption">Sesiones monográficas con referentes clínicos en activo.</p>
+            </div>
+            <div class="fact-stats">
+              <div class="fact-stat"><b>Individual</b><span>inscripción</span></div>
+              <div class="fact-stat"><b>Acreditado</b><span>expediente</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORMACIONES DESTACADAS ===== -->
+  <section class="method-section section" id="formaciones">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-light">Formaciones destacadas</span>
+        <h2 class="title">Encuentra tu formación y apúntate</h2>
+        <p class="lede">Cursos acreditados con duración, modalidad y certificación claras. Filtra y elige en segundos.</p>
+      </div>
+      <div class="pg-grid pg-grid--3" data-reveal>
+        <a class="pg-card cat-card" href="formaciones.html">
+          <span class="pg-tag">Inmersión temática</span>
+          <h3>Deep Dive Program</h3>
+          <p>Píldoras formativas con profesionales especialistas.</p>
+          <div class="cat-meta"><span>En directo</span><span>Acreditada</span></div>
+          <span class="pg-more">Ver programa &rarr;</span>
+        </a>
+        <a class="pg-card cat-card" href="formaciones.html">
+          <span class="pg-tag">Certificación ERC</span>
+          <h3>Formación SVB+DEA</h3>
+          <p>Certificación oficial en Soporte Vital Básico y DEA.</p>
+          <div class="cat-meta"><span>Presencial</span><span>Certificación oficial</span></div>
+          <span class="pg-more">Inscríbete &rarr;</span>
+        </a>
+        <a class="pg-card cat-card" href="formaciones.html">
+          <span class="pg-tag">Acreditada · TES</span>
+          <h3>Farmacología para TES</h3>
+          <p>Fármacos en emergencias prehospitalarias.</p>
+          <div class="cat-meta"><span>Acreditada</span><span>TES</span></div>
+          <span class="pg-more">Inscríbete &rarr;</span>
+        </a>
+      </div>
+      <div class="pg-actions" data-reveal>
+        <a class="pg-btn pg-btn--primary" href="formaciones.html">Ver todas las formaciones</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== METHOD ===== -->
+  <section class="method-section section" id="metodo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-light">El método</span>
+        <h2 class="title">Cómo se aprende a decidir</h2>
+        <p class="lede">No es un webinar más. Es un ciclo que va de la evidencia a la decisión clínica, con la simulación como entrenador.</p>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal style="--d:0s">
+          <span class="step-num">01 · EVIDENCIA</span>
+          <h3>Partimos de la evidencia</h3>
+          <p>Guías actualizadas (SSC 2026, POCUS, salud mental extrahospitalaria) destiladas por referentes clínicos en activo.</p>
+        </div>
+        <div class="step" data-reveal style="--d:.1s">
+          <span class="step-num">02 · CASO REAL</span>
+          <h3>Entrenamos con casos reales</h3>
+          <p>Escenarios de UCI, Urgencias, HEMS y parto extrahospitalario. Las mismas decisiones que te encuentras en cada guardia.</p>
+        </div>
+        <div class="step" data-reveal style="--d:.2s">
+          <span class="step-num">03 · DEBRIEFING</span>
+          <h3>Cerramos con debate abierto</h3>
+          <p>Interacción directa con los ponentes para fijar el criterio y llevarte respuestas concretas a tu práctica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testi-section section" id="testimonios">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow on-light">Trustpilot</span>
+        <h2 class="title">Una comunidad de sanitarios que no deja de crecer</h2>
+      </div>
+      <div class="testi-band" data-reveal>
+        <span class="trust-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+        </span>
+        <b>4.9 / 5</b>
+        <span>· Más de 180 reseñas profesionales verificadas</span>
+        <span class="g">Formación médica acreditada</span>
+      </div>
+      <div class="cards">
+        <div class="tcard" data-reveal style="--d:0s">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>“Experiencia muy buena por la profesionalidad que hubo en el webinar. Se pasó el tiempo volando de lo interesante que fue.”</blockquote>
+          <div>
+            <p class="who">Médico Adjunto de Urgencias</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+          </div>
+        </div>
+        <div class="tcard" data-reveal style="--d:.1s">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>“Formación 100% recomendada. Formadores en activo en el medio extrahospitalario y con un sistema de aprendizaje brutal. Casos reales que te encuentras en cada guardia.”</blockquote>
+          <div>
+            <p class="who">Enfermero SEM Cataluña</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+          </div>
+        </div>
+        <div class="tcard" data-reveal style="--d:.2s">
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+          </div>
+          <blockquote>“El valor de tener a profesionales juristas, enfermeros HEMS y expertos de UCI en un solo paquete anual no tiene comparación. Rigor absoluto.”</blockquote>
+          <div>
+            <p class="who">TES Unidad Medicalizada</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="cta-section section" id="contacto">
+    <div class="container">
+      <div class="cta-inner">
+        <div data-reveal>
+          <span class="eyebrow on-dark">Hablemos</span>
+          <h2>¿Preparados para decidir mejor cuando importa?</h2>
+          <p class="lede">Cuéntanos quién eres y qué necesitas. Te respondemos en menos de 24h con una propuesta concreta, sin compromiso.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-lg" href="mailto:esthercollell@cosimulation.es?subject=Quiero%20informaci%C3%B3n">Escríbenos
+              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="tel:+34630481134">Llamar</a>
+          </div>
+        </div>
+        <div class="contact-card" data-reveal style="--d:.1s">
+          <span class="k">Contacto directo</span>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><span class="l">Esther Collell</span><br><a href="tel:+34630481134">+34 630 48 11 34</a></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div><span class="l">Correo</span><br><a href="mailto:esthercollell@cosimulation.es">esthercollell@cosimulation.es</a></div>
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><span class="l">Dónde</span><br><span>Sant Fruitós de Bages, Barcelona</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-top">
+      <div class="site-footer-brand">
+        <a class="site-brand" href="landing.html" aria-label="coSIMULATION inicio">
+          <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
+        </a>
+        <p data-ca="Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut." data-es="Centro docente de entrenamiento médico y simulación clínica avanzada. Formación continuada con rigor académico y operativo para profesionales de la salud.">Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut.</p>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Públics" data-es="Públicos">Públics</h4>
+        <a href="empreses.html" data-ca="Empreses" data-es="Empresas">Empreses</a>
+        <a href="per-a-tothom.html" data-ca="Per a tothom" data-es="Para todos">Per a tothom</a>
+        <a href="professionals.html" data-ca="Professionals" data-es="Profesionales">Professionals</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Programes" data-es="Programas">Programes</h4>
+        <a href="formaciones.html" data-ca="Totes les formacions" data-es="Todas las formaciones">Totes les formacions</a>
+        <a href="listado.html" data-ca="Programa Deep Dive" data-es="Programa Deep Dive">Programa Deep Dive</a>
+        <a href="xerrades.html" data-ca="Xerrades i ponències" data-es="Charlas y ponencias">Xerrades i ponències</a>
+        <a href="sesion.html" data-ca="Sessió de mostra" data-es="Sesión de muestra">Sessió de mostra</a>
+      </div>
+      <div class="site-footer-col">
+        <h4 data-ca="Legal i contacte" data-es="Legal y contacto">Legal i contacte</h4>
+        <a href="sobre-mi.html#contacto" data-ca="Contacte" data-es="Contacto">Contacte</a>
+        <a href="legal.html" data-ca="Avís legal" data-es="Aviso legal">Avís legal</a>
+        <a href="#" data-ca="Política de privacitat" data-es="Política de privacidad">Política de privacitat</a>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <span>© 2026 coSIMULATION. Tots els drets reservats.</span>
+      <span class="tr">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+        Trustpilot 4.9/5
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="grain" aria-hidden="true"></div>
+<script>
+(function(){
+  "use strict";
+
+  /* ---- nav scrolled state ---- */
+  var navBar = document.querySelector('.site-nav');
+  function onScroll(){
+    if(navBar){ navBar.classList.toggle('scrolled', window.scrollY > 40); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- mobile nav: CSS <details>, sin JS ---- */
+
+  /* ---- audience selector ---- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  function select(audience, focus){
+    tabs.forEach(function(t){
+      var on = t.getAttribute('data-audience') === audience;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function(p){
+      var on = p.id === 'panel-' + audience;
+      p.classList.remove('active');
+      if(on){ void p.offsetWidth; p.classList.add('active'); }
+    });
+    if(focus){
+      var t = tabs.filter(function(x){ return x.getAttribute('data-audience') === audience; })[0];
+      if(t) t.focus();
+    }
+  }
+  tabs.forEach(function(t){
+    t.tabIndex = -1;
+    t.addEventListener('click', function(){ select(t.getAttribute('data-audience')); });
+    t.addEventListener('keydown', function(e){
+      var i = tabs.indexOf(t);
+      var next = null;
+      if(e.key === 'ArrowRight'){ next = tabs[(i+1) % tabs.length]; }
+      else if(e.key === 'ArrowLeft'){ next = tabs[(i-1+tabs.length) % tabs.length]; }
+      else if(e.key === 'Home'){ next = tabs[0]; }
+      else if(e.key === 'End'){ next = tabs[tabs.length-1]; }
+      if(next){ e.preventDefault(); select(next.getAttribute('data-audience'), true); }
+    });
+  });
+  if(tabs[0]) tabs[0].tabIndex = 0;
+
+  /* ---- scroll reveals ---- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- fail-safe: never leave content hidden if JS ran but observer missed ---- */
+  setTimeout(function(){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }, 2500);
+})();
+</script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
