@@ -109,7 +109,7 @@ body.pg{background:#fff;color:var(--sn-ink);font-family:var(--sn-font-body);font
 .pg-hero{background:var(--sn-navy-deep);color:#fff;padding:96px 0 66px}
 .pg-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn-font-display);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sn-accent)}
 .pg-eyebrow::before{content:"";width:22px;height:1px;background:var(--sn-accent);opacity:.75}
-.pg-h1{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:18px 0 0;max-width:20ch}
+.pg-h1{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:18px 0 0;max-width:20ch;overflow-wrap:break-word;text-wrap:balance}
 .pg-lede{margin:18px 0 0;max-width:40rem;font-size:18px;color:var(--sn-soft);line-height:1.6}
 .pg-section{padding:clamp(64px,8vw,92px) 0}
 .pg-section--alt{background:#f7f9fb;border-top:1px solid var(--sn-line);border-bottom:1px solid var(--sn-line)}
@@ -608,3 +608,49 @@ a.pg-contact-item:hover{color:var(--sn-accent)}
 .pg-card--dark .pg-includes li{color:var(--sn-soft)}
 .pg-card--dark .pg-includes strong{color:#fff}
 .pg-card--dark .pg-includes svg{color:#34d399}
+
+/* ============================================================
+   Ficha de formación (curso.html)
+   ============================================================ */
+.pg-figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--sn-line);background:#fff;box-shadow:0 24px 54px rgba(11,37,69,.14)}
+.pg-figure img{display:block;width:100%;height:auto}
+.pg-figure figcaption{padding:12px 16px;border-top:1px solid var(--sn-line);font-size:12.5px;line-height:1.5;color:var(--sn-slate)}
+
+.pg-h3{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:-.02em;line-height:1.15;color:var(--sn-ink);margin-top:54px}
+.pg-price-note{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--sn-slate)}
+.pg-card--deep .pg-price-note{color:var(--sn-soft)}
+
+.pg-gallery{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+@media(min-width:640px){.pg-gallery{grid-template-columns:repeat(3,1fr)}}
+.pg-gallery figure{margin:0;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--sn-line);background:#0b2545}
+.pg-gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 58%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.pg-gallery figure:hover img{transform:scale(1.05)}
+.pg-gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 11px;background:linear-gradient(to top,rgba(11,37,69,.88),transparent);color:#fff;font-size:11.5px;font-weight:600;line-height:1.35;letter-spacing:.01em}
+
+.pg-check-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.pg-check-list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.55;color:var(--sn-slate)}
+.pg-check-list .ico{width:26px;height:26px;flex:none;border-radius:999px;display:grid;place-items:center;background:rgba(0,166,251,.14);color:var(--sn-accent-deep)}
+.pg-check-list .ico svg{width:13px;height:13px}
+.pg-check-list strong{color:var(--sn-ink);font-weight:600}
+
+.pg-places{display:grid;gap:16px;margin-top:30px}
+@media(min-width:760px){.pg-places{grid-template-columns:1fr 1fr}}
+.pg-place{display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid var(--sn-line);border-radius:14px;padding:24px}
+.pg-place-top{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:8px 14px}
+.pg-place h3{font-family:var(--sn-font-display);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--sn-ink);margin:0}
+.pg-place-city{display:block;margin-top:3px;font-family:var(--sn-font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sn-accent-deep)}
+.pg-status{display:inline-flex;align-items:center;gap:6px;flex:none;padding:5px 10px;border-radius:999px;font-family:var(--sn-font-display);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pg-status--open{background:rgba(5,150,105,.12);color:#047857}
+.pg-status--soon{background:rgba(217,119,6,.14);color:#b45309}
+.pg-status .dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
+.pg-place-row{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--sn-slate)}
+.pg-place-row svg{width:15px;height:15px;flex:none;margin-top:2px;color:var(--sn-accent-deep)}
+.pg-place .pg-btn{margin-top:auto;align-self:flex-start}
+
+/* piezas de precio dentro de la tarjeta azul */
+.pg-card--deep .pg-price{color:#fff}
+.pg-card--deep .pg-price-row span:last-child{color:var(--sn-soft)}
+.pg-card--deep .pg-check-list li{color:var(--sn-soft)}
+.pg-card--deep .pg-check-list strong{color:#fff}
+.pg-card--deep .pg-check-list .ico{background:rgba(0,166,251,.22);color:var(--sn-accent)}
+.pg-card--deep .pg-note-inline{background:rgba(52,211,153,.14);color:#6ee7b7}
