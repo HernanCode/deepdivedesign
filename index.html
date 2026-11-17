@@ -232,9 +232,10 @@ body.menu-locked{overflow:hidden}
 .choice:hover .choice-cta svg{color:#04101f;transform:translateX(3px)}
 .choice:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .display-line{display:block}
+html.js .display-line[data-entrance]{animation-duration:.75s}
 .h1-ecg{position:relative;display:inline-block;padding-bottom:.46em}
 .h1-ecg .ecg{position:absolute;left:0;right:0;bottom:.02em;width:100%;height:.34em;overflow:visible}
-.ecg path{fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:ecgDraw 2.1s cubic-bezier(.35,0,.2,1) 1.2s forwards}
+.ecg path{fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:ecgDraw 1.2s cubic-bezier(.35,0,.2,1) 1.85s forwards}
 @keyframes ecgDraw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.ecg path{animation:none;stroke-dashoffset:0}}
 .chooser-help{margin-top:18px;font-size:13.5px;color:var(--muted-dark)}
@@ -391,18 +392,18 @@ html.js [data-entrance]{opacity:0;animation:rise .9s var(--ease) forwards;animat
     <div class="hero-inner">
       <div class="container">
         <div class="hero-copy">
-          <h1 class="display" data-entrance style="--d:.1s">
-            <span class="display-line" data-ca="Tu pots salvar una vida." data-es="Tú puedes salvar una vida.">Tu pots salvar una vida.</span>
-            <span class="display-line tone h1-ecg"><span data-ca="Nosaltres t'ensenyem com." data-es="Nosotros te enseñamos cómo.">Nosaltres t'ensenyem com.</span><svg class="ecg" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M0 82 h90 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h396"/></svg></span>
+          <h1 class="display">
+            <span class="display-line" data-entrance style="--d:.1s" data-ca="Tu pots salvar una vida." data-es="Tú puedes salvar una vida.">Tu pots salvar una vida.</span>
+            <span class="display-line tone h1-ecg" data-entrance style="--d:1s"><span data-ca="Nosaltres t'ensenyem com." data-es="Nosotros te enseñamos cómo.">Nosaltres t'ensenyem com.</span><svg class="ecg" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M0 82 h90 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h60 q12 -12 24 0 h20 l8 8 14 -78 14 80 10 -10 h16 q16 -16 32 0 h40 h396"/></svg></span>
           </h1>
-          <p class="lede on-dark" data-entrance style="--d:.4s" data-ca="Formació pràctica per a empreses, particulars i professionals sanitaris." data-es="Formación práctica para empresas, particulares y profesionales sanitarios.">Formació pràctica per a empreses, particulars i professionals sanitaris.</p>
+          <p class="lede on-dark" data-entrance style="--d:3.15s" data-ca="Formació pràctica per a empreses, particulars i professionals sanitaris." data-es="Formación práctica para empresas, particulares y profesionales sanitarios.">Formació pràctica per a empreses, particulars i professionals sanitaris.</p>
         </div>
 
         <div class="chooser" id="para-quien">
-          <h2 class="chooser-q" data-entrance style="--d:1.7s" data-ca="Qui ets?" data-es="¿Quién eres?">Qui ets?</h2>
+          <h2 class="chooser-q" data-entrance style="--d:3.3s" data-ca="Qui ets?" data-es="¿Quién eres?">Qui ets?</h2>
           <div class="chooser-grid">
 
-            <a class="choice" href="empreses.html" data-entrance style="--d:1.95s">
+            <a class="choice" href="empreses.html" data-entrance style="--d:3.45s">
               <span class="choice-media"><img src="assets/img/publico-empresas.jpg" alt="Equipo practicando reanimación con maniquíes"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
@@ -414,7 +415,7 @@ html.js [data-entrance]{opacity:0;animation:rise .9s var(--ease) forwards;animat
               </span>
             </a>
 
-            <a class="choice" href="per-a-tothom.html" data-entrance style="--d:2.1s">
+            <a class="choice" href="per-a-tothom.html" data-entrance style="--d:3.6s">
               <span class="choice-media"><img src="assets/img/publico-particulares.jpg" alt="Práctica de reanimación cardiopulmonar sobre un maniquí"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
@@ -426,7 +427,7 @@ html.js [data-entrance]{opacity:0;animation:rise .9s var(--ease) forwards;animat
               </span>
             </a>
 
-            <a class="choice" href="professionals.html" data-entrance style="--d:2.25s">
+            <a class="choice" href="professionals.html" data-entrance style="--d:3.75s">
               <span class="choice-media"><img src="assets/img/publico-profesionales.jpg" alt="Equipo de electrocardiografía en entorno de simulación clínica"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
@@ -439,7 +440,7 @@ html.js [data-entrance]{opacity:0;animation:rise .9s var(--ease) forwards;animat
             </a>
 
           </div>
-          <p class="chooser-help" data-entrance style="--d:2.5s"><span data-ca="No saps quin és el teu cas?" data-es="¿No sabes cuál es tu caso?">No saps quin és el teu cas?</span> <a href="sobre-mi.html#contacto" data-ca="Explica'ns-ho" data-es="Cuéntanoslo">Explica'ns-ho</a>.</p>
+          <p class="chooser-help" data-entrance style="--d:3.95s"><span data-ca="No saps quin és el teu cas?" data-es="¿No sabes cuál es tu caso?">No saps quin és el teu cas?</span> <a href="sobre-mi.html#contacto" data-ca="Explica'ns-ho" data-es="Cuéntanoslo">Explica'ns-ho</a>.</p>
         </div>
 
         <!-- <div class="hero-trust" data-entrance style="--d:.48s">
