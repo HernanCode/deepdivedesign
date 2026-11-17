@@ -73,9 +73,9 @@ svg{display:block}
 .eyebrow.on-light{color:var(--accent-deep)}
 
 h1.display{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(2.3rem,5.2vw,4.4rem);
-  line-height:1.03;letter-spacing:-.03em;color:#fff;text-wrap:balance;
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(2.2rem,5.8vw,4.9rem);
+  line-height:.98;letter-spacing:-.045em;color:#fff;
 }
 h2.title{
   font-family:var(--font-display);font-weight:700;
@@ -184,21 +184,14 @@ body.menu-locked{overflow:hidden}
 .hero-scrim{
   position:absolute;inset:0;z-index:-1;
   background:
-    linear-gradient(180deg,rgba(11,37,69,.72) 0%,rgba(11,37,69,.45) 42%,rgba(11,37,69,.95) 100%),
+    radial-gradient(780px 580px at 34% 32%,rgba(11,37,69,.62) 0%,rgba(11,37,69,.3) 56%,transparent 80%),
+    linear-gradient(180deg,rgba(11,37,69,.74) 0%,rgba(11,37,69,.55) 45%,rgba(11,37,69,.95) 100%),
     linear-gradient(100deg,rgba(11,37,69,.92) 0%,rgba(11,37,69,.6) 46%,rgba(11,37,69,.2) 78%,transparent 100%);
 }
 .hero-inner{position:relative;z-index:1;width:100%;padding:96px 0 38px;display:flex;flex-direction:column}
-.hero-copy{max-width:900px}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.85);
-  background:rgba(255,255,255,.07);border:1px solid var(--line-dark);
-  padding:8px 15px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-}
-.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,166,251,.18)}
-.hero h1{margin-top:18px}
-.hero .lede{margin-top:18px;font-size:18px;max-width:38rem}
+.hero-copy{max-width:none}
+.hero h1{margin-top:0}
+.hero .lede{margin-top:22px;font-size:20px;max-width:44rem;color:rgba(255,255,255,.85)}
 .hero-trust{
   margin-top:22px;padding-top:18px;border-top:1px solid var(--line-dark);
   display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;
@@ -211,7 +204,7 @@ body.menu-locked{overflow:hidden}
 
 /* ---------- selector de público ---------- */
 .chooser{margin-top:30px}
-.chooser-q{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,2.4vw,1.85rem);letter-spacing:-.02em;color:#fff}
+.chooser-q{font-family:var(--font-display);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .chooser-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
 @media(min-width:1024px){.chooser-grid{grid-template-columns:repeat(3,1fr);gap:20px}}
 .choice{
@@ -221,23 +214,29 @@ body.menu-locked{overflow:hidden}
 }
 .choice-media{position:absolute;inset:0;z-index:-2;display:block;overflow:hidden}
 .choice-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease)}
-.choice-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,37,69,0) 0%,rgba(11,37,69,0) 34%,rgba(11,37,69,.28) 50%,rgba(11,37,69,.62) 64%,rgba(11,37,69,.9) 82%,rgba(11,37,69,.97) 100%)}
+.choice-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,37,69,0) 0%,rgba(11,37,69,.30) 36%,rgba(11,37,69,.72) 58%,rgba(11,37,69,.93) 80%,rgba(11,37,69,.98) 100%)}
 .choice-body{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:270px;padding:20px 20px 18px}
-.choice-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.35rem,2.1vw,1.62rem);line-height:1.1;letter-spacing:-.02em;color:#fff;margin-top:0;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 20px rgba(0,0,0,.5)}
+.choice-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,2.5vw,1.95rem);line-height:1.08;letter-spacing:-.025em;color:#fff;margin-top:0;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 20px rgba(0,0,0,.5)}
 .choice-sub{font-size:13px;line-height:1.4;font-weight:500;color:#fff;margin-top:6px;opacity:.95;text-shadow:0 1px 3px rgba(0,0,0,.7),0 2px 12px rgba(0,0,0,.55)}
 .choice-cta{
   display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;
-  padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.24);
-  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#fff;
+  padding:9px 16px;border-radius:999px;border:1px solid transparent;
+  background:var(--accent);
+  font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#04101f;
   transition:background .3s var(--ease-io),color .3s var(--ease-io),border-color .3s var(--ease-io);
 }
-.choice-cta svg{width:14px;height:14px;color:var(--accent);transition:transform .3s var(--ease-io),color .3s var(--ease-io)}
+.choice-cta svg{width:14px;height:14px;color:currentColor;transition:transform .3s var(--ease-io),color .3s var(--ease-io)}
 .choice:hover{transform:translateY(-4px);box-shadow:0 26px 52px rgba(0,0,0,.38)}
 .choice:hover .choice-media img{transform:scale(1.07)}
-.choice:hover .choice-cta{background:var(--accent);border-color:transparent;color:#04101f}
+.choice:hover .choice-cta{background:#fff;border-color:transparent;color:#04101f}
 .choice:hover .choice-cta svg{color:#04101f;transform:translateX(3px)}
 .choice:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.display-line{display:block}
+.h1-ecg{position:relative;display:inline-block;padding-bottom:.32em}
+.h1-ecg .ecg{position:absolute;left:0;right:0;bottom:.02em;width:100%;height:.26em;overflow:visible}
+.ecg path{fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:ecgDraw 1.9s cubic-bezier(.35,0,.2,1) .55s forwards}
+@keyframes ecgDraw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.ecg path{animation:none;stroke-dashoffset:0}}
 .chooser-help{margin-top:18px;font-size:13.5px;color:var(--muted-dark)}
 .chooser-help a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(0,166,251,.55);text-underline-offset:3px;transition:text-decoration-color .2s}
 .chooser-help a:hover{text-decoration-color:var(--accent)}
@@ -392,8 +391,10 @@ html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animat
     <div class="hero-inner">
       <div class="container">
         <div class="hero-copy">
-          <span class="hero-badge" data-entrance style="--d:.05s">Barcelona · <span data-ca="Presencial i en directe" data-es="Presencial y en directo">Presencial i en directe</span></span>
-          <h1 class="display" data-entrance style="--d:.15s"><span data-ca="Tu pots salvar una vida." data-es="Tú puedes salvar una vida.">Tu pots salvar una vida.</span><br> <span class="tone" data-ca="Nosaltres t'ensenyem com." data-es="Nosotros te enseñamos cómo.">Nosaltres t'ensenyem com.</span></h1>
+          <h1 class="display" data-entrance style="--d:.1s">
+            <span class="display-line" data-ca="Tu pots salvar una vida." data-es="Tú puedes salvar una vida.">Tu pots salvar una vida.</span>
+            <span class="display-line tone h1-ecg"><span data-ca="Nosaltres t'ensenyem com." data-es="Nosotros te enseñamos cómo.">Nosaltres t'ensenyem com.</span><svg class="ecg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M0 68 H360 q18 -13 36 0 h34 l10 8 14 -64 14 56 h26 q20 -16 40 0 H1200"/></svg></span>
+          </h1>
           <p class="lede on-dark" data-entrance style="--d:.26s" data-ca="Formació pràctica per a empreses, particulars i professionals sanitaris." data-es="Formación práctica para empresas, particulares y profesionales sanitarios.">Formació pràctica per a empreses, particulars i professionals sanitaris.</p>
         </div>
 
