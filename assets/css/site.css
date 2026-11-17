@@ -109,11 +109,11 @@ body.pg{background:#fff;color:var(--sn-ink);font-family:var(--sn-font-body);font
 .pg-hero{background:var(--sn-navy-deep);color:#fff;padding:96px 0 66px}
 .pg-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--sn-font-display);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sn-accent)}
 .pg-eyebrow::before{content:"";width:22px;height:1px;background:var(--sn-accent);opacity:.75}
-.pg-h1{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:18px 0 0;max-width:20ch;overflow-wrap:break-word;text-wrap:balance}
+.pg-h1{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.75rem,5vw,4.4rem);line-height:1.06;letter-spacing:-.03em;color:#fff;margin:18px 0 0;max-width:20ch;overflow-wrap:break-word;text-wrap:balance}
 .pg-lede{margin:18px 0 0;max-width:40rem;font-size:18px;color:var(--sn-soft);line-height:1.6}
 .pg-section{padding:clamp(64px,8vw,92px) 0}
 .pg-section--alt{background:#f7f9fb;border-top:1px solid var(--sn-line);border-bottom:1px solid var(--sn-line)}
-.pg-h2{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.7rem,3.2vw,2.5rem);letter-spacing:-.02em;color:var(--sn-ink)}
+.pg-h2{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.7rem,3.2vw,2.5rem);line-height:1.14;letter-spacing:-.02em;color:var(--sn-ink)}
 .pg-sub{color:var(--sn-slate);margin-top:12px;max-width:38rem}
 .pg-grid{display:grid;gap:20px;margin-top:30px;grid-template-columns:1fr}
 @media(min-width:720px){.pg-grid{grid-template-columns:1fr 1fr}}
@@ -135,7 +135,7 @@ body.pg{background:#fff;color:var(--sn-ink);font-family:var(--sn-font-body);font
 .pg-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .pg-quote{font-family:var(--sn-font-display);font-weight:600;font-size:clamp(1.15rem,2.3vw,1.6rem);line-height:1.35;letter-spacing:-.01em;color:#fff;max-width:46rem;margin:0}
 .pg-cta{background:var(--sn-navy-surface);color:#fff;padding:62px 0}
-.pg-cta h2{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.02em;color:#fff;margin:0}
+.pg-cta h2{font-family:var(--sn-font-display);font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.16;letter-spacing:-.02em;color:#fff;margin:0}
 .pg-cta p{color:var(--sn-soft);margin:12px 0 0;max-width:40rem}
 .pg-sep{height:1px;background:var(--sn-line);margin:44px 0}
 
