@@ -229,7 +229,7 @@ html.js body.pg [data-reveal].in{opacity:1;transform:none}
 .pg-hero--img::before{content:none}
 .pg-hero--img .pg-hero-media{position:absolute;inset:0;z-index:0}
 .pg-hero--img .pg-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.55) saturate(1.05);will-change:transform}
-.pg-hero--img .pg-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,37,69,.72) 0%,rgba(11,37,69,.5) 45%,rgba(11,37,69,.94) 100%),linear-gradient(100deg,rgba(11,37,69,.85) 0%,rgba(11,37,69,.3) 55%,transparent 78%)}
+.pg-hero--img .pg-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(var(--area-rgb,11,37,69),.72) 0%,rgba(var(--area-rgb,11,37,69),.5) 45%,rgba(var(--area-rgb,11,37,69),.94) 100%),linear-gradient(100deg,rgba(var(--area-rgb,11,37,69),.85) 0%,rgba(var(--area-rgb,11,37,69),.3) 55%,transparent 78%)}
 .pg-hero--img .pg-wrap{position:relative;z-index:2}
 
 /* hero con imagen oscura (deep dive): se ve más la foto y hace zoom de inmersión al bajar */
@@ -676,3 +676,11 @@ a.pg-contact-item:hover{color:var(--sn-accent)}
 }
 .pg-testi-feature .pg-testi-foot{justify-content:flex-start;gap:10px 22px;margin-top:18px;padding-top:14px}
 .pg-testi-feature .pg-testi-foot b{font-family:var(--sn-font-display);font-weight:700;font-size:13px;color:var(--sn-ink)}
+
+/* ============================================================
+   Tonos de área por público (prueba de color)
+   ============================================================ */
+.area-empresa{--area-1:#0b2545;--area-2:#17395f;--area-rgb:11,37,69}
+.area-part{--area-1:#0e3b4f;--area-2:#155a70;--area-rgb:14,59,79;--sn-accent:#19b6c9;--sn-accent-deep:#0e8fa3}
+.area-prof{--area-1:#1b2f52;--area-2:#2a4576;--area-rgb:27,47,82;--sn-accent:#7c8cf8;--sn-accent-deep:#5b6ee8}
+.area-part .pg-hero,.area-prof .pg-hero{background:linear-gradient(155deg,var(--area-1) 0%,var(--area-2) 100%)}
