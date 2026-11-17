@@ -75,7 +75,7 @@ svg{display:block}
 h1.display{
   font-family:var(--font-display);font-weight:700;
   font-size:clamp(2.3rem,5.2vw,4.4rem);
-  line-height:1.03;letter-spacing:-.03em;color:#fff;
+  line-height:1.03;letter-spacing:-.03em;color:#fff;text-wrap:balance;
 }
 h2.title{
   font-family:var(--font-display);font-weight:700;
@@ -175,7 +175,7 @@ body.menu-locked{overflow:hidden}
 /* ---------- hero ---------- */
 .hero{
   position:relative;min-height:100vh;min-height:100dvh;
-  display:flex;flex-direction:column;justify-content:flex-end;
+  display:flex;flex-direction:column;justify-content:center;
   color:#fff;overflow:hidden;isolation:isolate;
   background:var(--navy-deep);
 }
@@ -187,11 +187,8 @@ body.menu-locked{overflow:hidden}
     linear-gradient(180deg,rgba(11,37,69,.72) 0%,rgba(11,37,69,.45) 42%,rgba(11,37,69,.95) 100%),
     linear-gradient(100deg,rgba(11,37,69,.92) 0%,rgba(11,37,69,.6) 46%,rgba(11,37,69,.2) 78%,transparent 100%);
 }
-.hero-inner{
-  position:relative;z-index:1;width:100%;
-  padding:96px 0 96px;display:flex;flex-direction:column;
-}
-.hero-copy{max-width:780px}
+.hero-inner{position:relative;z-index:1;width:100%;padding:96px 0 38px;display:flex;flex-direction:column}
+.hero-copy{max-width:900px}
 .hero-badge{
   display:inline-flex;align-items:center;gap:9px;
   font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
@@ -199,88 +196,76 @@ body.menu-locked{overflow:hidden}
   background:rgba(255,255,255,.07);border:1px solid var(--line-dark);
   padding:8px 15px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
-.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.hero h1{margin-top:26px}
-.hero .lede{margin-top:20px;font-size:18px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,166,251,.18)}
+.hero h1{margin-top:18px}
+.hero .lede{margin-top:18px;font-size:18px;max-width:38rem}
 .hero-trust{
-  margin-top:60px;padding-top:22px;border-top:1px solid var(--line-dark);
-  display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line-dark);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;
 }
 .trust-item{display:flex;align-items:center;gap:9px;color:var(--muted-dark);font-size:13.5px}
 .trust-item svg{width:17px;height:17px;color:var(--accent);flex:none}
 .trust-item b{color:#fff;font-weight:600}
 .trust-stars{display:inline-flex;gap:2px;color:var(--green)}
 .trust-stars svg{width:15px;height:15px;color:var(--green)}
-.hero-scroll{
-  margin-top:46px;display:flex;align-items:center;gap:10px;color:var(--muted-dark);
-  font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+
+/* ---------- selector de público ---------- */
+.chooser{margin-top:30px}
+.chooser-q{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,2.4vw,1.85rem);letter-spacing:-.02em;color:#fff}
+.chooser-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+@media(min-width:1024px){.chooser-grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.choice{
+  position:relative;display:block;isolation:isolate;overflow:hidden;
+  border-radius:18px;min-height:270px;background:var(--navy-mid);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
 }
-.hero-scroll svg{width:15px;height:15px}
+.choice-media{position:absolute;inset:0;z-index:-2;display:block;overflow:hidden}
+.choice-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease)}
+.choice-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,37,69,0) 0%,rgba(11,37,69,0) 34%,rgba(11,37,69,.28) 50%,rgba(11,37,69,.62) 64%,rgba(11,37,69,.9) 82%,rgba(11,37,69,.97) 100%)}
+.choice-body{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:270px;padding:20px 20px 18px}
+.choice-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.35rem,2.1vw,1.62rem);line-height:1.1;letter-spacing:-.02em;color:#fff;margin-top:0;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 20px rgba(0,0,0,.5)}
+.choice-sub{font-size:13px;line-height:1.4;font-weight:500;color:#fff;margin-top:6px;opacity:.95;text-shadow:0 1px 3px rgba(0,0,0,.7),0 2px 12px rgba(0,0,0,.55)}
+.choice-cta{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;
+  padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#fff;
+  transition:background .3s var(--ease-io),color .3s var(--ease-io),border-color .3s var(--ease-io);
+}
+.choice-cta svg{width:14px;height:14px;color:var(--accent);transition:transform .3s var(--ease-io),color .3s var(--ease-io)}
+.choice:hover{transform:translateY(-4px);box-shadow:0 26px 52px rgba(0,0,0,.38)}
+.choice:hover .choice-media img{transform:scale(1.07)}
+.choice:hover .choice-cta{background:var(--accent);border-color:transparent;color:#04101f}
+.choice:hover .choice-cta svg{color:#04101f;transform:translateX(3px)}
+.choice:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.chooser-help{margin-top:18px;font-size:13.5px;color:var(--muted-dark)}
+.chooser-help a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(0,166,251,.55);text-underline-offset:3px;transition:text-decoration-color .2s}
+.chooser-help a:hover{text-decoration-color:var(--accent)}
+
+/* móvil y tablet: tarjetas horizontales compactas, texto y botón siempre visibles */
+@media(max-width:1023px){
+  .hero-inner{padding:96px 0 44px}
+  .choice{display:grid;grid-template-columns:104px 1fr;min-height:0;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12)}
+  .choice-media{position:relative;inset:auto;z-index:auto}
+  .choice-media img{min-height:100px}
+  .choice-scrim{display:none}
+  .choice-body{min-height:124px;justify-content:center;padding:13px 15px}
+  .choice-title{font-size:1.04rem;margin-top:0}
+  .choice-sub{font-size:11.5px;margin-top:4px}
+  .choice-cta{margin-top:9px;padding:6px 11px;font-size:12px}
+  .choice:hover{transform:none;box-shadow:none}
+  .choice:hover .choice-media img{transform:none}
+}
 
 /* ---------- section shell ---------- */
+.sheet{border-radius:28px 28px 0 0;margin-top:-46px;position:relative;z-index:3}
+@media(max-width:600px){.sheet{border-radius:22px 22px 0 0;margin-top:-34px}}
 .section{padding:clamp(64px,8vw,92px) 0}
 .section-head{max-width:720px;margin-bottom:52px}
 .section-head h2{margin-top:16px}
 .section-head .lede{margin-top:16px}
 .center{text-align:center;margin-left:auto;margin-right:auto}
 .center .eyebrow::before{display:none}
-
-/* ---------- selector (heart) ---------- */
-.selector-section{background:var(--surface);border-radius:28px 28px 0 0;margin-top:-46px;position:relative;z-index:5}
-.tabs{
-  display:grid;grid-template-columns:1fr;gap:8px;
-  padding:7px;border-radius:12px;background:var(--surface-low);
-  border:1px solid var(--line);max-width:720px;
-}
-@media(min-width:680px){.tabs{grid-template-columns:1fr 1fr 1fr}}
-.tab{
-  display:flex;align-items:center;gap:11px;text-align:left;
-  padding:14px 18px;border-radius:10px;color:var(--slate);
-  font-family:var(--font-display);font-weight:600;font-size:15px;
-  transition:background .25s var(--ease-io),color .25s var(--ease-io),box-shadow .25s var(--ease-io);
-}
-.tab svg{width:19px;height:19px;flex:none;color:var(--accent-deep)}
-.tab .tab-sub{display:block;font-family:var(--font-body);font-weight:500;font-size:11.5px;color:var(--slate);opacity:.75;margin-top:1px;letter-spacing:.01em}
-.tab[aria-selected="true"]{background:var(--navy-deep);color:#fff;box-shadow:0 4px 12px rgba(11,37,69,.14)}
-.tab[aria-selected="true"] svg{color:var(--accent)}
-.tab[aria-selected="true"] .tab-sub{color:var(--muted-dark);opacity:1}
-.tab:hover:not([aria-selected="true"]){background:var(--card)}
-
-.panels{margin-top:36px;position:relative}
-.panel{display:none}
-.panel.active{display:grid;animation:panelIn .5s var(--ease)}
-@keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.panel-grid{grid-template-columns:1fr;gap:32px;align-items:stretch}
-@media(min-width:960px){.panel-grid{grid-template-columns:1.15fr .85fr;gap:56px}}
-.panel-body h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.02em;color:var(--navy-deep);line-height:1.12}
-.panel-body>p{margin-top:14px;color:var(--slate);max-width:30rem}
-.benefits{margin-top:26px;display:grid;gap:13px}
-.benefit{display:flex;gap:13px;align-items:flex-start}
-.benefit .check{
-  width:22px;height:22px;border-radius:7px;flex:none;margin-top:2px;
-  background:rgba(0,166,251,.14);color:var(--accent-deep);display:grid;place-items:center;
-}
-.benefit .check svg{width:13px;height:13px}
-.benefit b{color:var(--navy-deep);font-weight:600}
-.benefit span{color:var(--slate);font-size:15.5px}
-.panel-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
-.panel-actions .note{font-size:13px;color:var(--slate);display:inline-flex;align-items:center;gap:7px}
-.panel-actions .note svg{width:15px;height:15px;color:var(--emerald)}
-
-.fact-card{
-  background:linear-gradient(160deg,var(--navy-deep),var(--navy-surface));
-  color:#fff;border-radius:14px;padding:34px 32px;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;justify-content:space-between;
-  box-shadow:0 8px 24px rgba(11,37,69,.16);
-}
-.fact-label{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.fact-big{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1;margin-top:14px}
-.fact-big em{font-style:normal;color:var(--accent)}
-.fact-caption{margin-top:10px;color:var(--muted-dark);font-size:14.5px;max-width:22rem}
-.fact-stats{margin-top:26px;border-top:1px solid var(--line-dark);padding-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.fact-stat b{font-family:var(--font-display);font-weight:700;font-size:1.35rem;color:#fff;letter-spacing:-.02em}
-.fact-stat span{display:block;font-size:12px;color:var(--muted-dark);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
 
 /* ---------- method ---------- */
 .method-section{background:var(--card)}
@@ -397,9 +382,8 @@ html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animat
 
 
 <main id="top">
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO / SELECTOR DE PÚBLICO ===== -->
   <section class="hero" aria-label="Presentación">
-    <!-- Fondo del hero: sustituye assets/img/hero-bg.jpg por la imagen de tu diseñador -->
     <div class="hero-media" aria-hidden="true">
       <img src="assets/img/hero-bg.jpg" alt="">
     </div>
@@ -408,22 +392,56 @@ html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animat
     <div class="hero-inner">
       <div class="container">
         <div class="hero-copy">
-          <span class="hero-badge" data-entrance style="--d:.05s">
-            Centro de simulación clínica avanzada · Barcelona
-          </span>
-          <h1 class="display" data-entrance style="--d:.15s">Formació Sanitària <span class="tone">amb Simulació Clínica</span></h1>
-          <p class="lede on-dark" data-entrance style="--d:.28s">
-            Entrenem a professionals de la salut i empreses amb una metodologia basada en la pràctica real.
-          </p>
-          <div class="hero-actions" data-entrance style="--d:.4s">
-            <a class="btn btn-primary btn-lg" href="formaciones.html">Elige tu formación
-              <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a class="btn btn-ghost btn-lg" href="#metodo">Cómo funciona</a>
-          </div>
+          <span class="hero-badge" data-entrance style="--d:.05s">Barcelona · <span data-ca="Presencial i en directe" data-es="Presencial y en directo">Presencial i en directe</span></span>
+          <h1 class="display" data-entrance style="--d:.15s"><span data-ca="Tu pots salvar una vida." data-es="Tú puedes salvar una vida.">Tu pots salvar una vida.</span><br> <span class="tone" data-ca="Nosaltres t'ensenyem com." data-es="Nosotros te enseñamos cómo.">Nosaltres t'ensenyem com.</span></h1>
+          <p class="lede on-dark" data-entrance style="--d:.26s" data-ca="Formació pràctica per a empreses, particulars i professionals sanitaris." data-es="Formación práctica para empresas, particulares y profesionales sanitarios.">Formació pràctica per a empreses, particulars i professionals sanitaris.</p>
         </div>
 
-        <div class="hero-trust" data-entrance style="--d:.55s">
+        <div class="chooser" id="para-quien" data-entrance style="--d:.36s">
+          <h2 class="chooser-q" data-ca="Qui ets?" data-es="¿Quién eres?">Qui ets?</h2>
+          <div class="chooser-grid">
+
+            <a class="choice" href="empreses.html">
+              <span class="choice-media"><img src="assets/img/publico-empresas.jpg" alt="Equipo practicando reanimación con maniquíes"></span>
+              <span class="choice-scrim" aria-hidden="true"></span>
+              <span class="choice-body">
+                <span class="choice-title" data-ca="Empresa" data-es="Empresa">Empresa</span>
+                <span class="choice-sub" data-ca="Equips, indústries i centres sanitaris" data-es="Equipos, industrias y centros sanitarios">Equips, indústries i centres sanitaris</span>
+                <span class="choice-cta"><span data-ca="Veure solucions" data-es="Ver soluciones">Veure solucions</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </span>
+            </a>
+
+            <a class="choice" href="per-a-tothom.html">
+              <span class="choice-media"><img src="assets/img/publico-particulares.jpg" alt="Práctica de reanimación cardiopulmonar sobre un maniquí"></span>
+              <span class="choice-scrim" aria-hidden="true"></span>
+              <span class="choice-body">
+                <span class="choice-title" data-ca="Particulars" data-es="Particulares">Particulars</span>
+                <span class="choice-sub" data-ca="Famílies, escoles, clubs i grups" data-es="Familias, escuelas, clubs y grupos">Famílies, escoles, clubs i grups</span>
+                <span class="choice-cta"><span data-ca="Veure formacions" data-es="Ver formaciones">Veure formacions</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </span>
+            </a>
+
+            <a class="choice" href="professionals.html">
+              <span class="choice-media"><img src="assets/img/publico-profesionales.jpg" alt="Equipo de electrocardiografía en entorno de simulación clínica"></span>
+              <span class="choice-scrim" aria-hidden="true"></span>
+              <span class="choice-body">
+                <span class="choice-title" data-ca="Professional sanitari" data-es="Profesional sanitario">Professional sanitari</span>
+                <span class="choice-sub" data-ca="Infermeria, TES, medicina i urgències" data-es="Enfermería, TES, medicina y urgencias">Infermeria, TES, medicina i urgències</span>
+                <span class="choice-cta"><span data-ca="Veure cursos" data-es="Ver cursos">Veure cursos</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </span>
+            </a>
+
+          </div>
+          <p class="chooser-help"><span data-ca="No saps quin és el teu cas?" data-es="¿No sabes cuál es tu caso?">No saps quin és el teu cas?</span> <a href="sobre-mi.html#contacto" data-ca="Explica'ns-ho" data-es="Cuéntanoslo">Explica'ns-ho</a>.</p>
+        </div>
+
+        <!-- <div class="hero-trust" data-entrance style="--d:.48s">
           <span class="trust-item">
             <span class="trust-stars" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
@@ -446,115 +464,13 @@ html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animat
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
             <span>Formación <b>acreditada</b></span>
           </span>
-        </div>
-
-        <div class="hero-scroll" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-          Descubre tu formación
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SELECTOR (el corazón) ===== -->
-  <section class="selector-section section" id="para-quien">
-    <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow on-light">Elige tu punto de partida</span>
-        <h2 class="title">¿Para quién es la formación?</h2>
-        <p class="lede">Tres públicos, una misma exigencia: decidir mejor cuando importa. Elige el tuyo.</p>
-      </div>
-
-      <div class="tabs" role="tablist" aria-label="Públicos" data-reveal>
-        <button class="tab" role="tab" id="tab-empreses" aria-selected="true" aria-controls="panel-empreses" data-audience="empreses">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 9h3.5a1 1 0 0 1 1 1V21M7 8h2M7 12h2M7 16h2M11 8h2M11 12h2"/></svg>
-          <span>Empresas<span class="tab-sub">Equipos y centros</span></span>
-        </button>
-        <button class="tab" role="tab" id="tab-per-a-tothom" aria-selected="false" aria-controls="panel-per-a-tothom" data-audience="per-a-tothom">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.9-9.7-9.4C.9 8.6 3.2 5.5 6.4 5.5c1.9 0 3.5 1 4.6 2.5 1.1-1.5 2.7-2.5 4.6-2.5 3.2 0 5.5 3.1 4.1 6.1C19.5 16.1 12 21 12 21z"/></svg>
-          <span>Para todos<span class="tab-sub">Particulares y grupos</span></span>
-        </button>
-        <button class="tab" role="tab" id="tab-professionals" aria-selected="false" aria-controls="panel-professionals" data-audience="professionals">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.2-5.2 3.6 9.4 2.4-6 1.8 1.8H21"/></svg>
-          <span>Profesionales<span class="tab-sub">Cursos y Deep Dive</span></span>
-        </button>
-      </div>
-
-      <div class="panels">
-        <div class="panel active panel-grid" role="tabpanel" id="panel-empreses" aria-labelledby="tab-empreses">
-          <div class="panel-body">
-            <h3>Equipos que no pueden fallar.</h3>
-            <p>Programa de Entrenamiento Continuado, prueba piloto y formación a medida para industrias, entornos de riesgo y equipos sanitarios.</p>
-            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Dos perfiles</b>: industria y centros sanitarios</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Entrenamiento continuado</b> durante todo el año</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Prueba piloto</b> antes de desplegar</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Deep Dive</b> para equipos sanitarios</span></div></div>
-            <div class="panel-actions">
-              <a class="btn btn-dark btn-lg" href="empreses.html">Ver Empresas <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Presupuesto sin compromiso</span>
-            </div>
-          </div>
-          <div class="fact-card" data-reveal>
-            <div>
-              <span class="fact-label">Para empresas</span>
-              <div class="fact-big">100% <em>adaptado</em></div>
-              <p class="fact-caption">Contenido, formato y calendario según la realidad de tu equipo.</p>
-            </div>
-            <div class="fact-stats">
-              <div class="fact-stat"><b>In situ</b><span>o en directo</span></div>
-              <div class="fact-stat"><b>+50</b><span>Sesiones</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-grid" role="tabpanel" id="panel-per-a-tothom" aria-labelledby="tab-per-a-tothom">
-          <div class="panel-body">
-            <h3>Saber actuar en cualquier sitio.</h3>
-            <p>Formación abierta en primeros auxilios, RCP, DEA y respuesta ante emergencias cotidianas, para particulares, familias y grupos.</p>
-            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Particulares y familias</b></span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Escuelas, clubs y asociaciones</b></span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Actividades prácticas</b> con maniquíes</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Certificado</b> de asistencia</span></div></div>
-            <div class="panel-actions">
-              <a class="btn btn-dark btn-lg" href="per-a-tothom.html">Ver Para todos <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Grupos reducidos</span>
-            </div>
-          </div>
-          <div class="fact-card" data-reveal>
-            <div>
-              <span class="fact-label">Para todos</span>
-              <div class="fact-big"><em>RCP</em> + DEA</div>
-              <p class="fact-caption">Primeros auxilios y respuesta ante emergencias del día a día.</p>
-            </div>
-            <div class="fact-stats">
-              <div class="fact-stat"><b>Grupos</b><span>reducidos</span></div>
-              <div class="fact-stat"><b>Cert.</b><span>incluido</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-grid" role="tabpanel" id="panel-professionals" aria-labelledby="tab-professionals">
-          <div class="panel-body">
-            <h3>Actualiza tu criterio clínico.</h3>
-            <p>Cursos especializados, Deep Dive con inscripción individual y charlas profesionales para mantenerte al día.</p>
-            <div class="benefits"><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Cursos especializados</b> (POCUS, urgencias...)</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Deep Dive</b> con inscripción individual</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Charlas y ponencias</b> técnicas</span></div><div class="benefit"><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span><span><b>Grabaciones</b> y material</span></div></div>
-            <div class="panel-actions">
-              <a class="btn btn-dark btn-lg" href="professionals.html">Ver Profesionales <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Plazas limitadas</span>
-            </div>
-          </div>
-          <div class="fact-card" data-reveal>
-            <div>
-              <span class="fact-label">Para profesionales</span>
-              <div class="fact-big"><em>Deep Dive</em></div>
-              <p class="fact-caption">Sesiones monográficas con referentes clínicos en activo.</p>
-            </div>
-            <div class="fact-stats">
-              <div class="fact-stat"><b>Individual</b><span>inscripción</span></div>
-              <div class="fact-stat"><b>Acreditado</b><span>expediente</span></div>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 
   <!-- ===== FORMACIONES DESTACADAS ===== -->
-  <section class="method-section section" id="formaciones">
+  <section class="method-section section sheet" id="formaciones">
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow on-light">Formaciones destacadas</span>
@@ -761,40 +677,6 @@ html.js [data-entrance]{opacity:0;animation:rise .8s var(--ease) forwards;animat
   onScroll();
 
   /* ---- mobile nav: CSS <details>, sin JS ---- */
-
-  /* ---- audience selector ---- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
-  function select(audience, focus){
-    tabs.forEach(function(t){
-      var on = t.getAttribute('data-audience') === audience;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-    });
-    panels.forEach(function(p){
-      var on = p.id === 'panel-' + audience;
-      p.classList.remove('active');
-      if(on){ void p.offsetWidth; p.classList.add('active'); }
-    });
-    if(focus){
-      var t = tabs.filter(function(x){ return x.getAttribute('data-audience') === audience; })[0];
-      if(t) t.focus();
-    }
-  }
-  tabs.forEach(function(t){
-    t.tabIndex = -1;
-    t.addEventListener('click', function(){ select(t.getAttribute('data-audience')); });
-    t.addEventListener('keydown', function(e){
-      var i = tabs.indexOf(t);
-      var next = null;
-      if(e.key === 'ArrowRight'){ next = tabs[(i+1) % tabs.length]; }
-      else if(e.key === 'ArrowLeft'){ next = tabs[(i-1+tabs.length) % tabs.length]; }
-      else if(e.key === 'Home'){ next = tabs[0]; }
-      else if(e.key === 'End'){ next = tabs[tabs.length-1]; }
-      if(next){ e.preventDefault(); select(next.getAttribute('data-audience'), true); }
-    });
-  });
-  if(tabs[0]) tabs[0].tabIndex = 0;
 
   /* ---- scroll reveals ---- */
   var revealEls = document.querySelectorAll('[data-reveal]');

@@ -38,45 +38,128 @@
   </div>
 </header>
 <main>
+  <!-- ===== HERO ===== -->
   <section class="pg-hero">
     <div class="pg-wrap">
       <span class="pg-eyebrow" data-ca="Per a professionals" data-es="Para profesionales">Per a professionals</span>
-      <h1 class="pg-h1" data-ca="Actualitza el teu criteri clínic." data-es="Actualiza tu criterio clínico.">Actualitza el teu criteri clínic.</h1>
-      <p class="pg-lede" data-ca="Cursos especialitzats, Deep Dive amb inscripció individual i xerrades professionals per a qui vol mantenir-se al dia." data-es="Cursos especializados, Deep Dive con inscripción individual y charlas profesionales para quien quiere mantenerse al día.">Cursos especialitzats, Deep Dive amb inscripció individual i xerrades professionals per a qui vol mantenir-se al dia.</p>
-      <div class="pg-actions">
-        <a class="pg-btn pg-btn--primary" href="listado.html" data-ca="Veure el Deep Dive" data-es="Ver el Deep Dive">Veure el Deep Dive</a>
-        <a class="pg-btn pg-btn--ghost" href="sobre-mi.html#contacto" data-ca="Consulta les properes formacions" data-es="Consulta las próximas formaciones">Consulta les properes formacions</a>
+      <h1 class="pg-h1"><span data-ca="Actualitza el teu" data-es="Actualiza tu">Actualitza el teu</span><br> <span class="tone" data-ca="criteri clínic." data-es="criterio clínico.">criteri clínic.</span></h1>
+      <p class="pg-lede" data-ca="Cursos especialitzats, Deep Dive amb inscripció individual i xerrades professionals per a qui vol mantenir-se al dia sense perdre temps." data-es="Cursos especializados, Deep Dive con inscripción individual y charlas profesionales para quien quiere mantenerse al día sin perder tiempo.">Cursos especialitzats, Deep Dive amb inscripció individual i xerrades professionals per a qui vol mantenir-se al dia sense perdre temps.</p>
+      <div class="pg-social" data-reveal style="--d:.15s">
+        <span data-ca="Formació acreditada" data-es="Formación acreditada">Formació acreditada</span>
+        <span data-ca="Gravacions i material" data-es="Grabaciones y material">Gravacions i material</span>
+        <span data-ca="Places limitades" data-es="Plazas limitadas">Places limitades</span>
+      </div>
+      <div class="pg-actions" data-reveal style="--d:.25s">
+        <a class="pg-btn pg-btn--primary" href="listado.html"><span data-ca="Inscriu-te al Deep Dive" data-es="Inscríbete al Deep Dive">Inscriu-te al Deep Dive </span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="pg-btn pg-btn--outline" href="#serveis" data-ca="Veure cursos" data-es="Ver cursos">Veure cursos</a>
       </div>
     </div>
   </section>
 
-  <section class="pg-section">
+  <!-- ===== SERVEIS ===== -->
+  <section class="pg-section" id="serveis">
     <div class="pg-wrap">
       <h2 class="pg-h2" data-ca="Què oferim" data-es="Qué ofrecemos">Què oferim</h2>
+      <p class="pg-sub" data-ca="Tres formats per actualitzar-te, tots amb docents en actiu." data-es="Tres formatos para actualizarte, todos con docentes en activo.">Tres formats per actualitzar-te, tots amb docents en actiu.</p>
       <div class="pg-grid pg-grid--3">
-        <div class="pg-card">
+        <article class="pg-card" data-reveal style="--d:0s">
+          <span class="cat-cat cat-cat--cyan" data-ca="Cursos" data-es="Cursos">Cursos</span>
           <h3 data-ca="Cursos especialitzats" data-es="Cursos especializados">Cursos especialitzats</h3>
           <p data-ca="Formació avançada en urgències, emergències, pacient crític i ecografia clínica (POCUS)." data-es="Formación avanzada en urgencias, emergencias, paciente crítico y ecografía clínica (POCUS).">Formació avançada en urgències, emergències, pacient crític i ecografia clínica (POCUS).</p>
-        </div>
-        <div class="pg-card">
+          <div class="cat-cta-btn"><a class="pg-btn pg-btn--outline" href="formaciones.html" data-ca="Veure formacions" data-es="Ver formaciones">Veure formacions</a></div>
+        </article>
+        <article class="pg-card" data-reveal style="--d:.06s">
+          <span class="cat-cat cat-cat--emerald" data-ca="Deep Dive" data-es="Deep Dive">Deep Dive</span>
           <h3 data-ca="Deep Dive amb inscripció individual" data-es="Deep Dive con inscripción individual">Deep Dive amb inscripció individual</h3>
           <p data-ca="Sessions monogràfiques en directe, amb casos reals i accés a les gravacions." data-es="Sesiones monográficas en directo, con casos reales y acceso a las grabaciones.">Sessions monogràfiques en directe, amb casos reals i accés a les gravacions.</p>
-          <div class="pg-actions"><a class="pg-btn pg-btn--dark" href="listado.html" data-ca="Inscriu-te al Deep Dive" data-es="Inscríbete al Deep Dive">Inscriu-te al Deep Dive</a></div>
-        </div>
-        <div class="pg-card">
+          <div class="cat-cta-btn"><a class="pg-btn pg-btn--dark" href="listado.html" data-ca="Inscriu-te al Deep Dive" data-es="Inscríbete al Deep Dive">Inscriu-te al Deep Dive</a></div>
+        </article>
+        <article class="pg-card" data-reveal style="--d:.12s">
+          <span class="cat-cat cat-cat--amber" data-ca="Ponències" data-es="Ponencias">Ponències</span>
           <h3 data-ca="Xerrades professionals" data-es="Charlas profesionales">Xerrades professionals</h3>
           <p data-ca="Ponències tècniques amb referents clínics per aprofundir en temes concrets." data-es="Ponencias técnicas con referentes clínicos para profundizar en temas concretos.">Ponències tècniques amb referents clínics per aprofundir en temes concrets.</p>
-          <div class="pg-actions"><a class="pg-btn pg-btn--ghost" href="xerrades.html" data-ca="Veure xerrades" data-es="Ver charlas">Veure xerrades</a></div>
+          <div class="cat-cta-btn"><a class="pg-btn pg-btn--outline" href="xerrades.html" data-ca="Veure xerrades" data-es="Ver charlas">Veure xerrades</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PER QUÈ ===== -->
+  <section class="pg-section pg-section--alt">
+    <div class="pg-wrap">
+      <div class="pg-split">
+        <div data-reveal>
+          <span class="pg-label" data-ca="Per què formar-te aquí" data-es="Por qué formarte aquí">Per què formar-te aquí</span>
+          <h2 class="pg-h2" data-ca="Contingut aplicable l'endemà" data-es="Contenido aplicable al día siguiente">Contingut aplicable l'endemà</h2>
+          <p class="pg-sub" data-ca="Docents en actiu, casos reals i material que et queda quan acaba la sessió." data-es="Docentes en activo, casos reales y material que te queda cuando termina la sesión.">Docents en actiu, casos reals i material que et queda quan acaba la sessió.</p>
+        </div>
+        <ul class="pg-check-list" data-reveal style="--d:.1s">
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+            <span>
+              <strong data-ca="Acreditació oficial" data-es="Acreditación oficial">Acreditació oficial</strong><br>
+              <span data-ca="Formació acreditada, vàlida per al teu expedient curricular." data-es="Formación acreditada, válida para tu expediente curricular.">Formació acreditada, vàlida per al teu expedient curricular.</span>
+            </span>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+            <span>
+              <strong data-ca="Gravacions i material" data-es="Grabaciones y material">Gravacions i material</strong><br>
+              <span data-ca="Accés a la sessió en HD i al material per revisar-la quan vulguis." data-es="Acceso a la sesión en HD y al material para revisarla cuando quieras.">Accés a la sessió en HD i al material per revisar-la quan vulguis.</span>
+            </span>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+            <span>
+              <strong data-ca="Places limitades" data-es="Plazas limitadas">Places limitades</strong><br>
+              <span data-ca="Grups reduïts per garantir la pràctica i el torn de preguntes." data-es="Grupos reducidos para garantizar la práctica y el turno de preguntas.">Grups reduïts per garantir la pràctica i el torn de preguntes.</span>
+            </span>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg></span>
+            <span>
+              <strong data-ca="Referents en actiu" data-es="Referentes en activo">Referents en actiu</strong><br>
+              <span data-ca="Docents que treballen cada dia en urgències, UCI o emergències." data-es="Docentes que trabajan cada día en urgencias, UCI o emergencias.">Docents que treballen cada dia en urgències, UCI o emergències.</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONI ===== -->
+  <section class="pg-section">
+    <div class="pg-wrap">
+      <div class="pg-testi-feature" data-reveal>
+        <span class="pg-init" aria-hidden="true">SC</span>
+        <div>
+          <span class="pg-stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+          </span>
+          <blockquote data-ca="«Formadors en actiu en el medi extrahospitalari i casos reals que et trobes a cada guàrdia. És l'única formació que he repetit any rere any.»" data-es="«Formadores en activo en el medio extrahospitalario y casos reales que te encuentras en cada guardia. Es la única formación que he repetido año tras año.»">«Formadors en actiu en el medi extrahospitalari i casos reals que et trobes a cada guàrdia. És l'única formació que he repetit any rere any.»</blockquote>
+          <div class="pg-testi-foot">
+            <b data-ca="Infermer del SEM Catalunya" data-es="Enfermero SEM Cataluña">Infermer del SEM Catalunya</b>
+            <span class="pg-verified">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>
+              <span data-ca="Verificat" data-es="Verificado">Verificat</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pg-cta">
+  <!-- ===== CTA ===== -->
+  <section class="pg-cta" data-reveal>
     <div class="pg-wrap">
+      <span class="pg-eyebrow" data-ca="Inscripció individual" data-es="Inscripción individual">Inscripció individual</span>
       <h2 data-ca="Decideix millor quan importa." data-es="Decide mejor cuando importa.">Decideix millor quan importa.</h2>
-      <p data-ca="Formació exigent, pràctica i acreditada per al teu dia a dia clínic." data-es="Formación exigente, práctica y acreditada para tu día a día clínico.">Formació exigent, pràctica i acreditada per al teu dia a dia clínic.</p>
-      <div class="pg-actions"><a class="pg-btn pg-btn--primary" href="listado.html" data-ca="Veure el Deep Dive" data-es="Ver el Deep Dive">Veure el Deep Dive</a></div>
+      <p data-ca="Tria la propera sessió i assegura la teva plaça: places limitades per garantir la participació." data-es="Elige la próxima sesión y asegura tu plaza: plazas limitadas para garantizar la participación.">Tria la propera sessió i assegura la teva plaça: places limitades per garantir la participació.</p>
+      <div class="pg-actions"><a class="pg-btn pg-btn--primary" href="listado.html"><span data-ca="Inscriu-te" data-es="Inscríbete">Inscriu-te </span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </section>
 </main>

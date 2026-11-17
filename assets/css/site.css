@@ -654,3 +654,25 @@ a.pg-contact-item:hover{color:var(--sn-accent)}
 .pg-card--deep .pg-check-list strong{color:#fff}
 .pg-card--deep .pg-check-list .ico{background:rgba(0,166,251,.22);color:var(--sn-accent)}
 .pg-card--deep .pg-note-inline{background:rgba(52,211,153,.14);color:#6ee7b7}
+
+/* ============================================================
+   Landings de público (empreses / per a tothom / professionals)
+   ============================================================ */
+.pg-testi-feature{
+  display:grid;grid-template-columns:1fr;gap:18px;padding:28px 24px;
+  background:#fff;border:1px solid var(--sn-line);border-radius:16px;
+  box-shadow:0 18px 44px rgba(11,37,69,.07);
+}
+@media(min-width:900px){.pg-testi-feature{grid-template-columns:60px minmax(0,1fr);gap:28px;padding:38px 42px}}
+.pg-init{
+  width:54px;height:54px;border-radius:999px;display:grid;place-items:center;
+  background:linear-gradient(140deg,#4cc9ff,var(--sn-accent));color:#04101f;
+  font-family:var(--sn-font-display);font-weight:800;font-size:.92rem;letter-spacing:.04em;
+}
+.pg-testi-feature .pg-stars{margin-bottom:12px}
+.pg-testi-feature blockquote{
+  margin:0;font-family:var(--sn-font-display);font-weight:600;
+  font-size:clamp(1.1rem,1.9vw,1.38rem);line-height:1.45;letter-spacing:-.01em;color:var(--sn-ink);
+}
+.pg-testi-feature .pg-testi-foot{justify-content:flex-start;gap:10px 22px;margin-top:18px;padding-top:14px}
+.pg-testi-feature .pg-testi-foot b{font-family:var(--sn-font-display);font-weight:700;font-size:13px;color:var(--sn-ink)}
