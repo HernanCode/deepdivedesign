@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js">
+<html lang="ca" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>coSIMULATION — Formación sanitaria y simulación clínica avanzada</title>
-<meta name="description" content="Formación sanitaria de alto nivel en urgencias, emergencias y cuidados críticos. Para profesionales, empresas e instituciones, y particulares.">
+<title>coSIMULATION — Formació sanitària i simulació clínica avançada</title>
+<meta name="description" content="Formació sanitària d'alt nivell en urgències, emergències i cures crítiques. Per a professionals, empreses i institucions, i particulars.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -208,29 +208,41 @@ body.menu-locked{overflow:hidden}
 .chooser-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
 @media(min-width:1024px){.chooser-grid{grid-template-columns:repeat(3,1fr);gap:20px}}
 .choice{
+  --choice-accent:#00a6fb;
+  --choice-ink:#04101f;
+  --choice-scrim:11,37,69;
+  --choice-glow:0,166,251;
   position:relative;display:block;isolation:isolate;overflow:hidden;
   border-radius:18px;min-height:270px;background:var(--navy-mid);
-  transition:translate .45s var(--ease),box-shadow .45s var(--ease);
+  border:1px solid rgba(var(--choice-glow),.30);
+  transition:translate .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);
 }
+/* --- código cromático por público --- */
+.choice--empresa{--choice-accent:#3d8bfd;--choice-ink:#04101f;--choice-scrim:13,49,96;--choice-glow:61,139,253}
+.choice--part{--choice-accent:#19c9b6;--choice-ink:#04101f;--choice-scrim:8,62,58;--choice-glow:25,201,182}
+.choice--prof{--choice-accent:#b8c9e1;--choice-ink:#12325f;--choice-scrim:18,28,54;--choice-glow:184,201,225}
 .choice-media{position:absolute;inset:0;z-index:-2;display:block;overflow:hidden}
 .choice-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease)}
-.choice-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,37,69,0) 0%,rgba(11,37,69,.30) 36%,rgba(11,37,69,.72) 58%,rgba(11,37,69,.93) 80%,rgba(11,37,69,.98) 100%)}
+.choice-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--choice-glow),.18) 0%,rgba(var(--choice-scrim),.42) 34%,rgba(var(--choice-scrim),.80) 58%,rgba(var(--choice-scrim),.96) 80%,rgba(var(--choice-scrim),1) 100%)}
+/* tinte ligero de acento al pasar el ratón */
+.choice::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .45s var(--ease);background:radial-gradient(125% 105% at 50% 0%,rgba(var(--choice-glow),.34) 0%,rgba(var(--choice-glow),.12) 46%,transparent 76%)}
+.choice:hover::after{opacity:1}
 .choice-body{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:270px;padding:20px 20px 18px}
 .choice-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,2.5vw,1.95rem);line-height:1.08;letter-spacing:-.025em;color:#fff;margin-top:0;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 20px rgba(0,0,0,.5)}
 .choice-sub{font-size:13px;line-height:1.4;font-weight:500;color:#fff;margin-top:6px;opacity:.95;text-shadow:0 1px 3px rgba(0,0,0,.7),0 2px 12px rgba(0,0,0,.55)}
 .choice-cta{
   display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:16px;
   padding:9px 16px;border-radius:999px;border:1px solid transparent;
-  background:var(--accent);
-  font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#04101f;
+  background:var(--choice-accent);
+  font-family:var(--font-display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--choice-ink);
   transition:background .3s var(--ease-io),color .3s var(--ease-io),border-color .3s var(--ease-io);
 }
 .choice-cta svg{width:14px;height:14px;color:currentColor;transition:transform .3s var(--ease-io),color .3s var(--ease-io)}
-.choice:hover{translate:0 -4px;box-shadow:0 26px 52px rgba(0,0,0,.38)}
+.choice:hover{translate:0 -4px;box-shadow:0 26px 52px rgba(0,0,0,.38);border-color:rgba(var(--choice-glow),.6)}
 .choice:hover .choice-media img{transform:scale(1.07)}
-.choice:hover .choice-cta{background:#fff;border-color:transparent;color:#04101f}
-.choice:hover .choice-cta svg{color:#04101f;transform:translateX(3px)}
-.choice:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.choice:hover .choice-cta{background:var(--choice-accent);border-color:transparent;color:var(--choice-ink);box-shadow:0 8px 22px rgba(var(--choice-glow),.45)}
+.choice:hover .choice-cta svg{transform:translateX(3px)}
+.choice:focus-visible{outline:2px solid var(--choice-accent);outline-offset:3px}
 .display-line{display:block}
 html.js .display-line[data-entrance]{animation-duration:.45s}
 .h1-ecg{position:relative;display:inline-block;padding-bottom:.62em}
@@ -247,6 +259,9 @@ html.js .ecg path{stroke-dasharray:1;stroke-dashoffset:1;animation:ecgDraw 3.2s 
 @media(max-width:1023px){
   .hero-inner{padding:96px 0 44px}
   .choice{display:grid;grid-template-columns:104px 1fr;min-height:0;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12)}
+  .choice--empresa{background:rgba(61,139,253,.14);border-color:rgba(61,139,253,.34)}
+  .choice--part{background:rgba(25,201,182,.14);border-color:rgba(25,201,182,.34)}
+  .choice--prof{background:rgba(184,201,225,.13);border-color:rgba(184,201,225,.32)}
   .choice-media{position:relative;inset:auto;z-index:auto}
   .choice-media img{min-height:100px}
   .choice-scrim{display:none}
@@ -354,7 +369,7 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
 <!-- ===== NAV (compartida) ===== -->
 <header class="site-nav">
   <div class="site-nav-inner">
-    <a class="site-brand" href="index.html" aria-label="coSIMULATION inicio">
+    <a class="site-brand" href="index.html" aria-label="coSIMULATION inici">
       <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
     </a>
     <nav class="site-links" aria-label="Principal">
@@ -384,7 +399,7 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
 
 <main id="top">
   <!-- ===== HERO / SELECTOR DE PÚBLICO ===== -->
-  <section class="hero" aria-label="Presentación">
+  <section class="hero" aria-label="Presentació">
     <div class="hero-media" aria-hidden="true">
       <img src="assets/img/hero-bg.jpg" alt="">
     </div>
@@ -404,8 +419,8 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
           <h2 class="chooser-q" data-entrance style="--d:1.8s" data-ca="Qui ets?" data-es="¿Quién eres?">Qui ets?</h2>
           <div class="chooser-grid">
 
-            <a class="choice" href="empreses.html" data-entrance style="--d:1.9s">
-              <span class="choice-media"><img src="assets/img/publico-empresas.jpg" alt="Equipo practicando reanimación con maniquíes"></span>
+            <a class="choice choice--empresa" href="empreses.html" data-entrance style="--d:1.9s">
+              <span class="choice-media"><img src="assets/img/publico-empresas.jpg" alt="Equip practicant reanimació amb maniquins"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
                 <span class="choice-title" data-ca="Empresa" data-es="Empresa">Empresa</span>
@@ -416,8 +431,8 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
               </span>
             </a>
 
-            <a class="choice" href="per-a-tothom.html" data-entrance style="--d:2s">
-              <span class="choice-media"><img src="assets/img/publico-particulares.jpg" alt="Práctica de reanimación cardiopulmonar sobre un maniquí"></span>
+            <a class="choice choice--part" href="per-a-tothom.html" data-entrance style="--d:2s">
+              <span class="choice-media"><img src="assets/img/publico-particulares.jpg" alt="Pràctica de reanimació cardiopulmonar sobre un maniquí"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
                 <span class="choice-title" data-ca="Particulars" data-es="Particulares">Particulars</span>
@@ -428,8 +443,8 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
               </span>
             </a>
 
-            <a class="choice" href="professionals.html" data-entrance style="--d:2.1s">
-              <span class="choice-media"><img src="assets/img/publico-profesionales.jpg" alt="Equipo de electrocardiografía en entorno de simulación clínica"></span>
+            <a class="choice choice--prof" href="professionals.html" data-entrance style="--d:2.1s">
+              <span class="choice-media"><img src="assets/img/publico-profesionales.jpg" alt="Equip d'electrocardiografia en un entorn de simulació clínica"></span>
               <span class="choice-scrim" aria-hidden="true"></span>
               <span class="choice-body">
                 <span class="choice-title" data-ca="Professional sanitari" data-es="Profesional sanitario">Professional sanitari</span>
@@ -453,19 +468,19 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
               <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
               <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
             </span>
-            <span><b>4.9/5</b> en Trustpilot</span>
+            <span><b>4.9/5</b> a Trustpilot</span>
           </span>
           <span class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            <span><b>+180</b> reseñas verificadas</span>
+            <span><b>+180</b> ressenyes verificades</span>
           </span>
           <span class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>
-            <span><b>En directo</b> + grabaciones HD</span>
+            <span><b>En directe</b> + gravacions HD</span>
           </span>
           <span class="trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            <span>Formación <b>acreditada</b></span>
+            <span>Formació <b>acreditada</b></span>
           </span>
         </div> -->
       </div>
@@ -476,35 +491,35 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
   <section class="method-section section sheet" id="formaciones">
     <div class="container">
       <div class="section-head" data-reveal>
-        <span class="eyebrow on-light">Formaciones destacadas</span>
-        <h2 class="title">Encuentra tu formación y apúntate</h2>
-        <p class="lede">Cursos acreditados con duración, modalidad y certificación claras. Filtra y elige en segundos.</p>
+        <span class="eyebrow on-light">Formacions destacades</span>
+        <h2 class="title">Troba la teva formació i apunta-t'hi</h2>
+        <p class="lede">Cursos acreditats amb durada, modalitat i certificació clares. Filtra i tria en segons.</p>
       </div>
       <div class="pg-grid pg-grid--3" data-reveal>
         <a class="pg-card cat-card" href="listado.html">
-          <span class="pg-tag">Inmersión temática</span>
+          <span class="pg-tag">Immersió temàtica</span>
           <h3>Deep Dive Program</h3>
-          <p>Píldoras formativas con profesionales especialistas.</p>
-          <div class="cat-meta"><span>En directo</span><span>Acreditada</span></div>
-          <span class="pg-more">Ver programa &rarr;</span>
+          <p>Píndoles formatives amb professionals especialistes.</p>
+          <div class="cat-meta"><span>En directe</span><span>Acreditada</span></div>
+          <span class="pg-more">Veure programa &rarr;</span>
         </a>
         <a class="pg-card cat-card" href="formaciones.html">
-          <span class="pg-tag">Certificación ERC</span>
-          <h3>Formación SVB+DEA</h3>
-          <p>Certificación oficial en Soporte Vital Básico y DEA.</p>
-          <div class="cat-meta"><span>Presencial</span><span>Certificación oficial</span></div>
-          <span class="pg-more">Inscríbete &rarr;</span>
+          <span class="pg-tag">Certificació ERC</span>
+          <h3>Formació SVB+DEA</h3>
+          <p>Certificació oficial en Suport Vital Bàsic i DEA.</p>
+          <div class="cat-meta"><span>Presencial</span><span>Certificació oficial</span></div>
+          <span class="pg-more">Inscriu-t'hi &rarr;</span>
         </a>
         <a class="pg-card cat-card" href="formaciones.html">
           <span class="pg-tag">Acreditada · TES</span>
-          <h3>Farmacología para TES</h3>
-          <p>Fármacos en emergencias prehospitalarias.</p>
+          <h3>Farmacologia per a TES</h3>
+          <p>Fàrmacs en emergències prehospitalàries.</p>
           <div class="cat-meta"><span>Acreditada</span><span>TES</span></div>
-          <span class="pg-more">Inscríbete &rarr;</span>
+          <span class="pg-more">Inscriu-t'hi &rarr;</span>
         </a>
       </div>
       <div class="pg-actions" data-reveal>
-        <a class="pg-btn pg-btn--primary" href="formaciones.html">Ver todas las formaciones</a>
+        <a class="pg-btn pg-btn--primary" href="formaciones.html">Veure totes les formacions</a>
       </div>
     </div>
   </section>
@@ -513,25 +528,25 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
   <section class="method-section section" id="metodo">
     <div class="container">
       <div class="section-head" data-reveal>
-        <span class="eyebrow on-light">El método</span>
-        <h2 class="title">Cómo se aprende a decidir</h2>
-        <p class="lede">No es un webinar más. Es un ciclo que va de la evidencia a la decisión clínica, con la simulación como entrenador.</p>
+        <span class="eyebrow on-light">El mètode</span>
+        <h2 class="title">Com s'aprèn a decidir</h2>
+        <p class="lede">No és un webinar més. És un cicle que va de l'evidència a la decisió clínica, amb la simulació com a entrenador.</p>
       </div>
       <div class="steps">
         <div class="step" data-reveal style="--d:0s">
-          <span class="step-num">01 · EVIDENCIA</span>
-          <h3>Partimos de la evidencia</h3>
-          <p>Guías actualizadas (SSC 2026, POCUS, salud mental extrahospitalaria) destiladas por referentes clínicos en activo.</p>
+          <span class="step-num">01 · EVIDÈNCIA</span>
+          <h3>Partim de l'evidència</h3>
+          <p>Guies actualitzades (SSC 2026, POCUS, salut mental extrahospitalària) destil·lades per referents clínics en actiu.</p>
         </div>
         <div class="step" data-reveal style="--d:.1s">
-          <span class="step-num">02 · CASO REAL</span>
-          <h3>Entrenamos con casos reales</h3>
-          <p>Escenarios de UCI, Urgencias, HEMS y parto extrahospitalario. Las mismas decisiones que te encuentras en cada guardia.</p>
+          <span class="step-num">02 · CAS REAL</span>
+          <h3>Entrenem amb casos reals</h3>
+          <p>Escenaris d'UCI, Urgències, HEMS i part extrahospitalari. Les mateixes decisions que trobes a cada guàrdia.</p>
         </div>
         <div class="step" data-reveal style="--d:.2s">
           <span class="step-num">03 · DEBRIEFING</span>
-          <h3>Cerramos con debate abierto</h3>
-          <p>Interacción directa con los ponentes para fijar el criterio y llevarte respuestas concretas a tu práctica.</p>
+          <h3>Tanquem amb debat obert</h3>
+          <p>Interacció directa amb els ponents per fixar el criteri i endur-te respostes concretes a la teva pràctica.</p>
         </div>
       </div>
     </div>
@@ -542,7 +557,7 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow on-light">Trustpilot</span>
-        <h2 class="title">Una comunidad de sanitarios que no deja de crecer</h2>
+        <h2 class="title">Una comunitat de sanitaris que no para de créixer</h2>
       </div>
       <div class="testi-band" data-reveal>
         <span class="trust-stars" aria-hidden="true">
@@ -553,38 +568,38 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
           <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
         </span>
         <b>4.9 / 5</b>
-        <span>· Más de 180 reseñas profesionales verificadas</span>
-        <span class="g">Formación médica acreditada</span>
+        <span>· Més de 180 ressenyes professionals verificades</span>
+        <span class="g">Formació mèdica acreditada</span>
       </div>
       <div class="cards">
         <div class="tcard" data-reveal style="--d:0s">
           <div class="stars" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
           </div>
-          <blockquote>“Experiencia muy buena por la profesionalidad que hubo en el webinar. Se pasó el tiempo volando de lo interesante que fue.”</blockquote>
+          <blockquote>“Experiència molt bona per la professionalitat que hi va haver al webinar. El temps es va passar volant de tan interessant com va ser.”</blockquote>
           <div>
-            <p class="who">Médico Adjunto de Urgencias</p>
-            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+            <p class="who">Metge Adjunt d'Urgències</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificat</span>
           </div>
         </div>
         <div class="tcard" data-reveal style="--d:.1s">
           <div class="stars" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
           </div>
-          <blockquote>“Formación 100% recomendada. Formadores en activo en el medio extrahospitalario y con un sistema de aprendizaje brutal. Casos reales que te encuentras en cada guardia.”</blockquote>
+          <blockquote>“Formació 100% recomanada. Formadors en actiu en el medi extrahospitalari i amb un sistema d'aprenentatge brutal. Casos reals que trobes a cada guàrdia.”</blockquote>
           <div>
-            <p class="who">Enfermero SEM Cataluña</p>
-            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+            <p class="who">Infermer del SEM Catalunya</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificat</span>
           </div>
         </div>
         <div class="tcard" data-reveal style="--d:.2s">
           <div class="stars" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
           </div>
-          <blockquote>“El valor de tener a profesionales juristas, enfermeros HEMS y expertos de UCI en un solo paquete anual no tiene comparación. Rigor absoluto.”</blockquote>
+          <blockquote>“El valor de tenir professionals juristes, infermers HEMS i experts d'UCI en un sol paquet anual no té comparació. Rigor absolut.”</blockquote>
           <div>
-            <p class="who">TES Unidad Medicalizada</p>
-            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificado</span>
+            <p class="who">TES Unitat Medicalitzada</p>
+            <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Verificat</span>
           </div>
         </div>
       </div>
@@ -596,29 +611,29 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
     <div class="container">
       <div class="cta-inner">
         <div data-reveal>
-          <span class="eyebrow on-dark">Hablemos</span>
-          <h2>¿Preparados para decidir mejor cuando importa?</h2>
-          <p class="lede">Cuéntanos quién eres y qué necesitas. Te respondemos en menos de 24h con una propuesta concreta, sin compromiso.</p>
+          <span class="eyebrow on-dark">Parlem</span>
+          <h2>Preparats per decidir millor quan importa?</h2>
+          <p class="lede">Explica'ns qui ets i què necessites. Et responem en menys de 24h amb una proposta concreta, sense compromís.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary btn-lg" href="mailto:esthercollell@cosimulation.es?subject=Quiero%20informaci%C3%B3n">Escríbenos
+            <a class="btn btn-primary btn-lg" href="mailto:esthercollell@cosimulation.es?subject=Vull%20informaci%C3%B3">Escriu-nos
               <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-ghost btn-lg" href="tel:+34630481134">Llamar</a>
+            <a class="btn btn-ghost btn-lg" href="tel:+34630481134">Trucar</a>
           </div>
         </div>
         <div class="contact-card" data-reveal style="--d:.1s">
-          <span class="k">Contacto directo</span>
+          <span class="k">Contacte directe</span>
           <div class="contact-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
             <div><span class="l">Esther Collell</span><br><a href="tel:+34630481134">+34 630 48 11 34</a></div>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <div><span class="l">Correo</span><br><a href="mailto:esthercollell@cosimulation.es">esthercollell@cosimulation.es</a></div>
+            <div><span class="l">Correu</span><br><a href="mailto:esthercollell@cosimulation.es">esthercollell@cosimulation.es</a></div>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <div><span class="l">Dónde</span><br><span>Sant Fruitós de Bages, Barcelona</span></div>
+            <div><span class="l">On</span><br><span>Sant Fruitós de Bages, Barcelona</span></div>
           </div>
         </div>
       </div>
@@ -631,7 +646,7 @@ html.js [data-entrance]{opacity:0;animation:rise .45s var(--ease) forwards;anima
   <div class="site-footer-inner">
     <div class="site-footer-top">
       <div class="site-footer-brand">
-        <a class="site-brand" href="index.html" aria-label="coSIMULATION inicio">
+        <a class="site-brand" href="index.html" aria-label="coSIMULATION inici">
           <span class="site-logo"><img src="assets/img/logo-cosimulation.png" alt="coSIMULATION"></span>
         </a>
         <p data-ca="Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut." data-es="Centro docente de entrenamiento médico y simulación clínica avanzada. Formación continuada con rigor académico y operativo para profesionales de la salud.">Centre docent d'entrenament mèdic i simulació clínica avançada. Formació continuada amb rigor acadèmic i operatiu per a professionals de la salut.</p>

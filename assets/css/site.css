@@ -229,7 +229,7 @@ html.js body.pg [data-reveal].in{opacity:1;transform:none}
 .pg-hero--img::before{content:none}
 .pg-hero--img .pg-hero-media{position:absolute;inset:0;z-index:0}
 .pg-hero--img .pg-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.55) saturate(1.05);will-change:transform}
-.pg-hero--img .pg-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,37,69,.72) 0%,rgba(11,37,69,.5) 45%,rgba(11,37,69,.94) 100%),linear-gradient(100deg,rgba(11,37,69,.85) 0%,rgba(11,37,69,.3) 55%,transparent 78%)}
+.pg-hero--img .pg-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(var(--area-scrim,11,37,69),.72) 0%,rgba(var(--area-scrim,11,37,69),.5) 45%,rgba(var(--area-scrim,11,37,69),.94) 100%),linear-gradient(100deg,rgba(var(--area-scrim,11,37,69),.85) 0%,rgba(var(--area-scrim,11,37,69),.3) 55%,transparent 78%)}
 .pg-hero--img .pg-wrap{position:relative;z-index:2}
 
 /* hero con imagen oscura (deep dive): se ve más la foto y hace zoom de inmersión al bajar */
@@ -676,3 +676,59 @@ a.pg-contact-item:hover{color:var(--sn-accent)}
 }
 .pg-testi-feature .pg-testi-foot{justify-content:flex-start;gap:10px 22px;margin-top:18px;padding-top:14px}
 .pg-testi-feature .pg-testi-foot b{font-family:var(--sn-font-display);font-weight:700;font-size:13px;color:var(--sn-ink)}
+
+/* ============================================================
+   Identidad cromática por público (landing → apartado)
+   Empresa  = azul corporativo
+   Particulars = verd aigua / teal
+   Professional sanitari = hielo / plata azulada
+   ============================================================ */
+.area-empresa{
+  --area-accent:#3d8bfd;
+  --area-accent-ink:#1f66c9;
+  --area-scrim:13,49,96;
+  --area-glow:61,139,253;
+  --sn-accent:var(--area-accent);
+  --sn-accent-deep:var(--area-accent-ink);
+}
+.area-part{
+  --area-accent:#12b7a4;
+  --area-accent-ink:#0a8b7d;
+  --area-scrim:8,62,58;
+  --area-glow:25,201,182;
+  --sn-accent:var(--area-accent);
+  --sn-accent-deep:var(--area-accent-ink);
+}
+.area-prof{
+  --area-accent:#b8c9e1;
+  --area-accent-ink:#48638c;
+  --area-scrim:18,28,54;
+  --area-glow:184,201,225;
+  --sn-accent:var(--area-accent);
+  --sn-accent-deep:var(--area-accent-ink);
+}
+
+/* tinte de color sobre la foto del hero (empreses / per a tothom) */
+.area-empresa .pg-hero--img .pg-hero-overlay{
+  background:
+    linear-gradient(180deg,rgba(61,139,253,.30) 0%,rgba(13,49,96,.55) 45%,rgba(9,33,66,.96) 100%),
+    linear-gradient(100deg,rgba(13,49,96,.86) 0%,rgba(13,49,96,.34) 55%,transparent 80%);
+}
+.area-part .pg-hero--img .pg-hero-overlay{
+  background:
+    linear-gradient(180deg,rgba(25,201,182,.28) 0%,rgba(8,62,58,.55) 45%,rgba(5,38,36,.96) 100%),
+    linear-gradient(100deg,rgba(8,62,58,.86) 0%,rgba(8,62,58,.34) 55%,transparent 80%);
+}
+
+/* hero sanitario: misma foto y mismo formato oscuro, con tinte hielo */
+.area-prof .pg-hero--img .pg-hero-overlay{
+  background:
+    linear-gradient(180deg,rgba(184,201,225,.24) 0%,rgba(18,28,54,.55) 45%,rgba(10,16,32,.96) 100%),
+    linear-gradient(100deg,rgba(18,28,54,.86) 0%,rgba(18,28,54,.34) 55%,transparent 80%);
+}
+.area-prof .pg-hero::before{
+  background:radial-gradient(120% 90% at 82% 0%,rgba(184,201,225,.18),transparent 55%),radial-gradient(90% 80% at 8% 100%,rgba(18,28,54,.5),transparent 60%);
+}
+.area-prof .pg-hero .pg-btn--outline{color:#dfe8f5;border-color:rgba(184,201,225,.55)}
+.area-prof .pg-hero .pg-btn--outline:hover{background:var(--sn-accent);color:#04101f;border-color:var(--sn-accent)}
+.area-prof .pg-btn--outline{border-color:var(--area-accent-ink)}
